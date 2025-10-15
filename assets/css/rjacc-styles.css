@@ -174,8 +174,8 @@ a:hover {
 }
 
 .hero-title {
-    font-size: var(--font-size-3xl);
-    font-weight: 300;
+    font-size: var(--font-size-1xl);
+    font-weight: 500;
     color: var(--primary-green-dark);
     margin-bottom: var(--spacing-md);
 }
