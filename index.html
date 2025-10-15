@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RJACC2025 - ระบบลงทะเบียนประชุมวิชาการ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/rjacc-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🏥 RJACC2025</h1>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">หน้าหลัก</a></li>
+                <li><a href="dashboard.html">ตรวจสอบรายชื่อ</a></li>
+                <li><a href="workshop-dashboard.html">Workshop Dashboard</a></li>
+                <li><a href="download.html">Download</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="container">
+            <!-- ใส่รูป Banner ตรงนี้ -->
+            <div class="banner-placeholder">
+                <img src="https://via.placeholder.com/1200x400/4CAF50/FFFFFF?text=RJACC2025+Banner" alt="RJACC2025 Banner">
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">ระบบลงทะเบียนประชุมวิชาการ RJACC2025</h2>
+                <p class="hero-subtitle">Rajavithi Academic Conference on Cardiac Care 2025</p>
+                <p class="hero-description">
+                    โรงพยาบาลราชวิถี<br>
+                    วันที่ 21-23 มกราคม 2569
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Options -->
+    <section class="registration-section">
+        <div class="container">
+            <h2 class="section-title">เลือกประเภทการลงทะเบียน</h2>
+            
+            <div class="registration-grid">
+                <!-- ภายนอก -->
+                <div class="registration-card external">
+                    <div class="card-header">
+                        <div class="card-icon">👥</div>
+                        <h3>บุคลากรภายนอก</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="price-tag">
+                            <span class="price">1,000 บาท</span>
+                            <span class="per-person">/คน</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>✓ จัดในรูปแบบ Onsite</li>
+                            <li>✓ มีหน่วย CME/CNEU</li>
+                            <li>✓ รับจำนวน 550 คน</li>
+                            <li>✓ ได้รับใบเสร็จ</li>
+                        </ul>
+                        <a href="register-external.html" class="btn btn-primary">ลงทะเบียนเลย</a>
+                        <p class="note">*เมื่อครบจำนวนระบบจะปิดรับสมัครทันที</p>
+                    </div>
+                </div>
+
+                <!-- ภายใน -->
+                <div class="registration-card internal">
+                    <div class="card-header">
+                        <div class="card-icon">🏥</div>
+                        <h3>บุคลากรภายใน</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="price-tag free">
+                            <span class="price">ฟรี</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>✓ จัดในรูปแบบ Onsite</li>
+                            <li>✓ มีหน่วย CME/CNEU</li>
+                            <li>✓ รับจำนวน 250 คน</li>
+                            <li>✓ สำหรับบุคลากร รพ.ราชวิถี</li>
+                        </ul>
+                        <a href="register-internal.html" class="btn btn-primary">ลงทะเบียนเลย</a>
+                        <p class="note">*คณะทำงานไม่ต้องลงทะเบียนที่นี่</p>
+                    </div>
+                </div>
+
+                <!-- คณะทำงาน -->
+                <div class="registration-card staff">
+                    <div class="card-header">
+                        <div class="card-icon">👨‍⚕️</div>
+                        <h3>คณะทำงาน</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="price-tag free">
+                            <span class="price">ฟรี</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>✓ จัดในรูปแบบ Onsite</li>
+                            <li>✓ มีหน่วย CME/CNEU</li>
+                            <li>✓ รับจำนวน 100 คน</li>
+                            <li>✓ สำหรับคณะทำงานเท่านั้น</li>
+                        </ul>
+                        <a href="register-staff.html" class="btn btn-primary">ลงทะเบียนเลย</a>
+                        <p class="note">*สำหรับคณะทำงานโครงการ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <h2 class="section-title">รายละเอียดการจัดงาน</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📅 วันเวลา</h3>
+                    <p>วันที่ 21-23 มกราคม 2569<br>
+                    พุธ-ศุกร์</p>
+                </div>
+                <div class="info-card">
+                    <h3>📍 สถานที่</h3>
+                    <p>โรงพยาบาลราชวิถี<br>
+                    กรุงเทพมหานคร</p>
+                </div>
+                <div class="info-card">
+                    <h3>🎓 หน่วยกิต</h3>
+                    <p>CME สำหรับแพทย์<br>
+                    CNEU สำหรับพยาบาล/เภสัชกร</p>
+                </div>
+                <div class="info-card">
+                    <h3>👥 จำนวนรับ</h3>
+                    <p>ภายนอก 550 คน<br>
+                    ภายใน 250 คน | ทำงาน 100 คน</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshop Schedule -->
+    <section class="workshop-section">
+        <div class="container">
+            <h2 class="section-title">Workshop & Lecture</h2>
+            
+            <div class="workshop-days">
+                <div class="workshop-day day1">
+                    <h3>Day 1 - วันพุธที่ 21 มกราคม 2569</h3>
+                    <div class="workshop-items">
+                        <div class="workshop-item">
+                            <strong>ห้องโยธี</strong> (13.00-16.00)<br>
+                            Topic: MIS CVT
+                        </div>
+                        <div class="workshop-item">
+                            <strong>ห้องราชพฤกษ์</strong> (13.00-16.00)<br>
+                            Topic: Cath Lab
+                        </div>
+                        <div class="workshop-item">
+                            <strong>ห้องสุพรรณิการ์</strong> (13.00-16.00)<br>
+                            Topic: Crisis Management
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workshop-day day2">
+                    <h3>Day 2 - วันพฤหัสบดีที่ 22 มกราคม 2569</h3>
+                    <div class="workshop-items">
+                        <div class="workshop-item">
+                            <strong>ห้องโยธี</strong> (08.00-12.00 / 13.00-16.00)<br>
+                            Topic: Workshop CVT
+                        </div>
+                        <div class="workshop-item">
+                            <strong>ห้องราชพฤกษ์</strong> (08.00-16.00 / 13.00-16.00)<br>
+                            Topic: กายภาพบำบัด
+                        </div>
+                        <div class="workshop-item">
+                            <strong>ห้องสุพรรณิการ์</strong> (08.00-12.00)<br>
+                            Topic: เภสัชกร
+                        </div>
+                    </div>
+                </div>
+
+                <div class="workshop-day day3">
+                    <h3>Day 3 - วันศุกร์ที่ 23 มกราคม 2569</h3>
+                    <div class="workshop-items">
+                        <div class="workshop-item">
+                            <strong>ห้องโยธี</strong> (08.00-12.00)<br>
+                            Topic: โภชนาการ
+                        </div>
+                        <div class="workshop-item">
+                            <strong>ห้องราชพฤกษ์</strong> (08.00-12.00)<br>
+                            Topic: นำเสนอผลงานวิชาการ/Innovation
+                        </div>
+                        <div class="workshop-item">
+                            <strong>ห้องสุพรรณิการ์</strong> (08.00-12.00)<br>
+                            Topic: การจัดการเครื่องมือแพทย์
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-banner">
+                <!-- ใส่รูป Banner ตรงนี้ -->
+                <img src="https://via.placeholder.com/1200x200/4CAF50/FFFFFF?text=Contact+Banner" alt="Contact Banner">
+            </div>
+            <p class="footer-contact">ติดต่อสอบถามเพิ่มเติมได้ที่</p>
+            <p>📧 Email: rjacc2025@rajavithi.go.th | 📞 Tel: 02-354-8888</p>
+            <p>&copy; 2025 RJACC2025 - โรงพยาบาลราชวิถี</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/config.js"></script>
+    <script>
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
