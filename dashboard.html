@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตรวจสอบรายชื่อผู้ลงทะเบียน - RJACC2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/rjacc-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand"><h1>🏥 RJACC2025</h1></div>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="dashboard.html" class="active">ตรวจสอบรายชื่อ</a></li>
+                <li><a href="workshop-dashboard.html">Workshop Dashboard</a></li>
+                <li><a href="download.html">Download</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard-header">
+        <div class="container">
+            <h2>ตรวจสอบรายชื่อผู้ลงทะเบียนสำเร็จ</h2>
+            <p>Registered Participants List</p>
+        </div>
+    </section>
+
+    <section class="dashboard-section">
+        <div class="container">
+            <!-- Tabs -->
+            <div class="tabs-container">
+                <button class="tab-button active" data-tab="external">
+                    บุคลากรภายนอก (External)
+                </button>
+                <button class="tab-button" data-tab="internal">
+                    บุคลากรภายใน + คณะทำงาน (Internal + Staff)
+                </button>
+            </div>
+
+            <!-- Tab Content: External -->
+            <div id="external-tab" class="tab-content active">
+                <h3 class="tab-title">บุคลากรภายนอก</h3>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3 id="externalTotal">0</h3>
+                            <p>จำนวนผู้ลงทะเบียน (คน)</p>
+                            <small>จาก 550 คน</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🗺️</div>
+                        <div class="stat-info">
+                            <h3 id="externalProvinces">0</h3>
+                            <p>จังหวัด</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <h4>จำนวนผู้ลงทะเบียนแยกตามจังหวัด</h4>
+                        <canvas id="externalProvinceChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h4>จำนวนสหวิชาชีพ (คน)</h4>
+                        <canvas id="externalPositionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="dashboard-controls">
+                    <div class="search-box">
+                        <input type="text" id="searchExternal" placeholder="🔍 ค้นหาชื่อ...">
+                    </div>
+                    <button class="btn btn-success" id="exportExternalBtn">📊 Export Excel</button>
+                </div>
+
+                <!-- Table -->
+                <div class="table-container">
+                    <table id="externalTable">
+                        <thead>
+                            <tr>
+                                <th>ลำดับ</th>
+                                <th>คำนำหน้า</th>
+                                <th>ชื่อ-นามสกุล</th>
+                                <th>ตำแหน่ง</th>
+                                <th>โรงพยาบาล/สถาบัน</th>
+                                <th>จังหวัด</th>
+                            </tr>
+                        </thead>
+                        <tbody id="externalTableBody">
+                            <!-- Data loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="externalEmptyState" class="empty-state" style="display:none;">
+                    <div class="empty-icon">📭</div>
+                    <h3>ยังไม่มีผู้ลงทะเบียน</h3>
+                </div>
+            </div>
+
+            <!-- Tab Content: Internal + Staff -->
+            <div id="internal-tab" class="tab-content">
+                <h3 class="tab-title">บุคลากรภายใน + คณะทำงาน</h3>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3 id="internalTotal">0</h3>
+                            <p>จำนวนผู้ลงทะเบียน (คน)</p>
+                            <small>ภายใน 250 + ทำงาน 100</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏢</div>
+                        <div class="stat-info">
+                            <h3 id="internalDepts">0</h3>
+                            <p>หน่วยงาน</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-info">
+                            <h3 id="internalWorkshop">0</h3>
+                            <p>ต้องการเข้าร่วม Workshop (คน)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <h4>จำนวนตามสังกัด (%)</h4>
+                        <canvas id="internalHospitalChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h4>จำนวนสหวิชาชีพ (คน)</h4>
+                        <canvas id="internalPositionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Filters -->
+                <div class="dashboard-controls">
+                    <div class="search-box">
+                        <input type="text" id="searchInternal" placeholder="🔍 ค้นหาชื่อ...">
+                    </div>
+                    <select id="filterType">
+                        <option value="all">ทั้งหมด</option>
+                        <option value="internal">บุคลากรภายใน</option>
+                        <option value="staff">คณะทำงาน</option>
+                    </select>
+                    <button class="btn btn-success" id="exportInternalBtn">📊 Export Excel</button>
+                </div>
+
+                <!-- Table -->
+                <div class="table-container">
+                    <table id="internalTable">
+                        <thead>
+                            <tr>
+                                <th>ลำดับ</th>
+                                <th>คำนำหน้า</th>
+                                <th>ชื่อ-นามสกุล</th>
+                                <th>ตำแหน่ง</th>
+                                <th>โรงพยาบาล/สถาบัน</th>
+                                <th>จังหวัด</th>
+                                <th>ประเภท</th>
+                            </tr>
+                        </thead>
+                        <tbody id="internalTableBody">
+                            <!-- Data loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="internalEmptyState" class="empty-state" style="display:none;">
+                    <div class="empty-icon">📭</div>
+                    <h3>ยังไม่มีผู้ลงทะเบียน</h3>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state" style="display:none;">
+                <div class="spinner-large"></div>
+                <p>กำลังโหลดข้อมูล...</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 RJACC2025 - โรงพยาบาลราชวิถี</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/rjacc-config.js"></script>
+    <script src="assets/js/rjacc-api.js"></script>
+    <script src="assets/js/rjacc-dashboard.js"></script>
+    <script>
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
