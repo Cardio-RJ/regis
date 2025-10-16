@@ -15,10 +15,15 @@
     --external-secondary: #45a049;
     --external-light: #e8f5e9;
     
-    /* สีสำหรับบุคลากรภายใน + คณะทำงาน */
+    /* สีสำหรับบุคลากรภายใน */
     --internal-primary: #E91E63;
     --internal-secondary: #c2185b;
     --internal-light: #fce4ec;
+    
+    /* สีสำหรับคณะทำงาน */
+    --staff-primary: #471D55;
+    --staff-secondary: #331542;
+    --staff-light: #e8e4ec;
     
     /* สี Accent */
     --accent-gold: #FFD700;
@@ -324,22 +329,22 @@ img {
     background: var(--internal-secondary);
 }
 
-/* การ์ดคณะทำงาน - สีชมพู */
+/* การ์ดคณะทำงาน - สีม่วง */
 .registration-card.staff {
-    border-color: var(--internal-primary);
+    border-color: var(--staff-primary);
 }
 
 .registration-card.staff .card-icon {
-    background: var(--internal-light);
-    color: var(--internal-primary);
+    background: var(--staff-light);
+    color: var(--staff-primary);
 }
 
 .registration-card.staff .btn-register {
-    background: var(--internal-primary);
+    background: var(--staff-primary);
 }
 
 .registration-card.staff .btn-register:hover {
-    background: var(--internal-secondary);
+    background: var(--staff-secondary);
 }
 
 .card-icon {
@@ -509,25 +514,39 @@ img {
 }
 
 /* ฟอร์มบุคลากรภายใน + คณะทำงาน - สีชมพู */
-.form-container.internal,
-.form-container.staff {
+.form-container.internal {
     border-top: 5px solid var(--internal-primary);
 }
 
-.form-container.internal .form-header,
-.form-container.staff .form-header {
+.form-container.internal .form-header {
     background: var(--internal-light);
     color: var(--internal-primary);
 }
 
-.form-container.internal .btn-submit,
-.form-container.staff .btn-submit {
+.form-container.internal .btn-submit {
     background: var(--internal-primary);
 }
 
-.form-container.internal .btn-submit:hover,
-.form-container.staff .btn-submit:hover {
+.form-container.internal .btn-submit:hover {
     background: var(--internal-secondary);
+}
+
+/* ฟอร์มคณะทำงาน - สีม่วง */
+.form-container.staff {
+    border-top: 5px solid var(--staff-primary);
+}
+
+.form-container.staff .form-header {
+    background: var(--staff-light);
+    color: var(--staff-primary);
+}
+
+.form-container.staff .btn-submit {
+    background: var(--staff-primary);
+}
+
+.form-container.staff .btn-submit:hover {
+    background: var(--staff-secondary);
 }
 
 .form-header {
@@ -835,8 +854,8 @@ tbody tr:hover {
 }
 
 .badge-staff {
-    background: var(--internal-light);
-    color: var(--internal-primary);
+    background: var(--staff-light);
+    color: var(--staff-primary);
 }
 
 /* === Responsive Design === */
