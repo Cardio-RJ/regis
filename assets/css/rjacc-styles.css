@@ -1369,7 +1369,7 @@ tbody tr:hover {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
     max-width: 900px;
-    margin: 0 auto;
+    margin-bottom: var(--spacing-sm);
 }
 
 .abstract-guidelines {
