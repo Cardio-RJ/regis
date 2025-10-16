@@ -1,250 +1,1575 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ติดต่อเรา - RJACC2025</title>
-    <link rel="icon" type="image/png" href="assets/images/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/rjacc-styles.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <img src="assets/images/logo.png" alt="RJACC Logo">
-                <h1>RJACC2025</h1>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a></li>
-                <li><a href="dashboard.html"><i class="fas fa-list-check"></i> ตรวจสอบรายชื่อ</a></li>
-                <li><a href="testing.html"><i class="fas fa-clipboard-check"></i> Testing & Evaluation</a></li>
-                <li><a href="download.html"><i class="fas fa-download"></i> Download</a></li>
-                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> ติดต่อ</a></li>
-            </ul>
-        </div>
-    </nav>
+/* ========================================
+   RJACC2025 - Main Stylesheet
+   สี Theme: #471D55 (Purple), Green, Pink
+   ======================================== */
 
-    <!-- Hero Section -->
-    <section class="hero" style="padding: 3rem 0;">
-        <div class="container">
-            <div class="hero-content">
-                <h2 class="hero-title"><i class="fas fa-envelope"></i> ติดต่อเรา</h2>
-                <p class="hero-subtitle">ศูนย์ความเป็นเลิศทางการแพทย์เฉพาะทาง ด้านโรคหัวใจและหลอดเลือด</p>
-            </div>
-        </div>
-    </section>
+/* === CSS Variables === */
+:root {
+    /* สี Theme หลัก */
+    --primary-purple: #471D55;
+    --primary-purple-dark: #331542;
+    --primary-purple-light: #5f2772;
+    
+    /* สีสำหรับบุคลากรภายนอก */
+    --external-primary: #4CAF50;
+    --external-secondary: #45a049;
+    --external-light: #e8f5e9;
+    
+    /* สีสำหรับบุคลากรภายใน */
+    --internal-primary: #E91E63;
+    --internal-secondary: #c2185b;
+    --internal-light: #fce4ec;
+    
+    /* สีสำหรับคณะทำงาน */
+    --staff-primary: #471D55;
+    --staff-secondary: #331542;
+    --staff-light: #e8e4ec;
+    
+    /* สี Accent */
+    --accent-gold: #FFD700;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --gray: #757575;
+    --dark-gray: #424242;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    
+    /* Typography */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    
+    /* Effects */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
 
-    <!-- Contact Section -->
-    <section class="form-section">
-        <div class="container">
-            <div class="contact-grid">
-                <!-- Contact Info -->
-                <div class="contact-info-card">
-                    <h3><i class="fas fa-building"></i> โรงพยาบาลราชวิถี</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>ที่อยู่</h4>
-                            <p>เลขที่ 2 ชั้น 9 อาคารเฉลิมพระเกียรติฯ<br>
-                            ถนนพญาไท แขวงทุ่งพญาไท เขตราชเทวี<br>
-                            กรุงเทพมหานคร 10400</p>
-                        </div>
-                    </div>
+/* === Global Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>โทรศัพท์</h4>
-                            <p><a href="tel:022602900">02-260-2900</a> ต่อ 78042</p>
-                        </div>
-                    </div>
+body {
+    font-family: 'Sarabun', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--light-gray);
+}
 
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>อีเมล</h4>
-                            <p><a href="mailto:info.nst@rajavithi.go.th">info.nst@rajavithi.go.th</a></p>
-                        </div>
-                    </div>
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
 
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>เวลาทำการ</h4>
-                            <p>จันทร์ - ศุกร์: 08:00 - 16:30 น.<br>
-                            (ปิดวันเสาร์ - อาทิตย์ และวันหยุดนักขัตฤกษ์)</p>
-                        </div>
-                    </div>
-                </div>
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-                <!-- Coordinator Info -->
-                <div class="contact-info-card">
-                    <h3><i class="fas fa-user-tie"></i> ผู้ประสานงาน</h3>
-                    
-                    <div class="coordinator-card">
-                        <div class="coordinator-icon">
-                            <i class="fas fa-user-circle"></i>
-                        </div>
-                        <h4>นายณัฐชัย  รัศมีดารา</h4>
-                        <p class="position">ผู้ช่วยพยาบาล</p>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-mobile-alt"></i>
-                            <div>
-                                <p>
-                                    <a href="tel:0658964590">065-896-4590</a><br>
-                                    <a href="tel:0825803334">082-580-3334</a>
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <p><a href="mailto:info.nst@rajavithi.go.th">info.nst@rajavithi.go.th</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+/* === Navigation Bar === */
+.navbar {
+    background: var(--primary-purple);
+    color: var(--white);
+    padding: var(--spacing-sm) 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
 
-            <!-- Contact Form -->
-            <div class="form-container" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                <div class="form-header" style="background: var(--primary-purple); color: var(--white);">
-                    <h3><i class="fas fa-paper-plane"></i> ส่งข้อความถึงเรา</h3>
-                    <p>หากมีคำถามหรือข้อสงสัย กรุณากรอกแบบฟอร์มด้านล่าง</p>
-                </div>
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-                <form id="contactForm" novalidate>
-                    <div class="form-group">
-                        <label for="contactName" class="required">ชื่อ-นามสกุล</label>
-                        <input type="text" id="contactName" name="contactName" required>
-                    </div>
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
 
-                    <div class="form-group">
-                        <label for="contactEmail" class="required">อีเมล</label>
-                        <input type="email" id="contactEmail" name="contactEmail" required>
-                    </div>
+.nav-brand img {
+    height: 50px;
+    width: auto;
+}
 
-                    <div class="form-group">
-                        <label for="contactPhone" class="required">เบอร์โทรศัพท์</label>
-                        <input type="tel" id="contactPhone" name="contactPhone" pattern="[0-9]{10}" required>
-                    </div>
+.nav-brand h1 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+}
 
-                    <div class="form-group">
-                        <label for="contactSubject" class="required">หัวข้อ</label>
-                        <select id="contactSubject" name="contactSubject" required>
-                            <option value="">-- เลือกหัวข้อ --</option>
-                            <option value="registration">เรื่องการลงทะเบียน</option>
-                            <option value="program">เรื่องโปรแกรมงาน</option>
-                            <option value="accommodation">เรื่องที่พัก</option>
-                            <option value="certificate">เรื่องใบประกาศ</option>
-                            <option value="payment">เรื่องการชำระเงิน</option>
-                            <option value="other">อื่น ๆ</option>
-                        </select>
-                    </div>
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
 
-                    <div class="form-group">
-                        <label for="contactMessage" class="required">ข้อความ</label>
-                        <textarea id="contactMessage" name="contactMessage" rows="6" required></textarea>
-                    </div>
+.nav-menu a {
+    color: var(--white);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    font-weight: 500;
+}
 
-                    <button type="submit" class="btn-submit">
-                        <i class="fas fa-paper-plane"></i> ส่งข้อความ
-                    </button>
-                </form>
-            </div>
+.nav-menu a:hover,
+.nav-menu a.active {
+    background: rgba(255, 255, 255, 0.2);
+}
 
-            <!-- Map Section -->
-            <div class="map-container" style="margin-top: 3rem;">
-                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-purple);">
-                    <i class="fas fa-map-marked-alt"></i> แผนที่
-                </h3>
-                <div class="map-embed">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.2912345!2d100.5356789!3d13.7644484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ed269f2b3e7%3A0x2e53d4e3b93be1!2z4LmC4Lij4LiH4Lie4Lii4Liy4Lia4Liy4Lil4Lij4Liy4LiK4Lin4Li04LiW4Li1!5e0!3m2!1sth!2sth!4v1234567890"
-                        width="100%" 
-                        height="450" 
-                        style="border:0; border-radius: 12px;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </section>
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+}
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content-wrapper">
-                <div class="footer-info">
-                    <p><strong>โรงพยาบาลราชวิถี กรมการแพทย์ (งานถ่ายทอดการพยาบาล กลุ่มงานวิชาการพยาบาล)</strong></p>
-                    <p>เลขที่ 2 ชั้น 9 อาคารเฉลิมพระเกียรติฯ ถนนพญาไท แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ 10400</p>
-                    <p>
-                        📧 Email: <a href="mailto:info.nst@rajavithi.go.th">info.nst@rajavithi.go.th</a> | 
-                        📞 Tel: <a href="tel:022602900">02-260-2900</a> ต่อ 78042
-                    </p>
-                    <p>&copy; 2025 RJACC2025 ศูนย์ความเป็นเลิศทางการแพทย์เฉพาะทาง ด้านโรคหัวใจและหลอดเลือด - โรงพยาบาลราชวิถี</p>
-                </div>
-                
-                <div class="footer-qrcode">
-                    <img src="assets/images/qrcode-line.png" alt="LINE OA QR Code">
-                    <p><strong>Scan QR Code LINE OA</strong></p>
-                    <p><strong>ติดต่อสอบถามเพิ่มเติม</strong></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: var(--transition);
+}
 
-    <!-- Scripts -->
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/navigation.js"></script>
-    <script>
-        // Handle contact form
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('contactName').value.trim(),
-                email: document.getElementById('contactEmail').value.trim(),
-                phone: document.getElementById('contactPhone').value.trim(),
-                subject: document.getElementById('contactSubject').value,
-                message: document.getElementById('contactMessage').value.trim()
-            };
-            
-            try {
-                RJACCUtils.showLoading(document.querySelector('.btn-submit'));
-                
-                const response = await fetch(`${CONFIG.API_BASE_URL}?route=contactMessage`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-                
-                if (response.ok) {
-                    RJACCUtils.showAlert('ส่งข้อความสำเร็จ! เจ้าหน้าที่จะติดต่อกลับโดยเร็ว', 'success');
-                    this.reset();
-                } else {
-                    throw new Error('Failed to send message');
-                }
-            } catch (error) {
-                console.error('Contact Error:', error);
-                RJACCUtils.showAlert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง', 'error');
-            } finally {
-                RJACCUtils.hideLoading(document.querySelector('.btn-submit'));
-            }
-        });
-    </script>
-</body>
-</html>
+/* === Banner Section === */
+.banner {
+    background: var(--white);
+    padding: var(--spacing-md) 0;
+}
+
+.banner-placeholder img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+/* === Hero Section === */
+.hero {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-purple-light) 100%);
+    color: var(--white);
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-subtitle {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    opacity: 0.95;
+}
+
+.hero-description {
+    font-size: var(--font-size-lg);
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    line-height: 1.8;
+}
+
+/* === Image Slider === */
+.image-slider-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--white);
+}
+
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.slider-slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-controls {
+    position: absolute;
+    bottom: var(--spacing-md);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-dot.active {
+    background: var(--white);
+    width: 30px;
+    border-radius: 6px;
+}
+
+/* === Registration Cards === */
+.registration-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--light-gray);
+}
+
+.section-title {
+    text-align: center;
+    font-size: var(--font-size-2xl);
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-xl);
+    font-weight: 700;
+}
+
+.registration-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.registration-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border-top: 5px solid;
+}
+
+.registration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* การ์ดบุคลากรภายนอก - สีเขียว */
+.registration-card.external {
+    border-color: var(--external-primary);
+}
+
+.registration-card.external .card-icon {
+    background: var(--external-light);
+    color: var(--external-primary);
+}
+
+.registration-card.external .btn-register {
+    background: var(--external-primary);
+}
+
+.registration-card.external .btn-register:hover {
+    background: var(--external-secondary);
+}
+
+/* การ์ดบุคลากรภายใน - สีชมพู */
+.registration-card.internal {
+    border-color: var(--internal-primary);
+}
+
+.registration-card.internal .card-icon {
+    background: var(--internal-light);
+    color: var(--internal-primary);
+}
+
+.registration-card.internal .btn-register {
+    background: var(--internal-primary);
+}
+
+.registration-card.internal .btn-register:hover {
+    background: var(--internal-secondary);
+}
+
+/* การ์ดคณะทำงาน - สีม่วง */
+.registration-card.staff {
+    border-color: var(--staff-primary);
+}
+
+.registration-card.staff .card-icon {
+    background: var(--staff-light);
+    color: var(--staff-primary);
+}
+
+.registration-card.staff .btn-register {
+    background: var(--staff-primary);
+}
+
+.registration-card.staff .btn-register:hover {
+    background: var(--staff-secondary);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.card-title {
+    font-size: var(--font-size-xl);
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.card-description {
+    color: var(--gray);
+    margin-bottom: var(--spacing-lg);
+    min-height: 60px;
+}
+
+.btn-register {
+    display: inline-block;
+    width: 100%;
+    padding: var(--spacing-md);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+/* === Event Details Section === */
+.event-details {
+    padding: var(--spacing-2xl) 0;
+    background: var(--white);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.detail-card {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.detail-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.detail-card h3 {
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-lg);
+}
+
+.detail-card p {
+    color: var(--gray);
+}
+
+/* === Contact Info Section === */
+.contact-info-section {
+    background: var(--primary-purple);
+    color: var(--white);
+    padding: var(--spacing-xl) 0;
+}
+
+.contact-info-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+}
+
+.contact-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+}
+
+.contact-box h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-gold);
+}
+
+.contact-box p {
+    margin: var(--spacing-xs) 0;
+    line-height: 1.8;
+}
+
+.contact-box strong {
+    color: var(--accent-gold);
+}
+
+/* === Footer === */
+.footer {
+    background: var(--primary-purple-dark);
+    color: var(--white);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footer-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-info p {
+    margin: var(--spacing-xs) 0;
+    line-height: 1.8;
+}
+
+.footer-info a {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+.footer-info a:hover {
+    text-decoration: underline;
+}
+
+.footer-qrcode {
+    text-align: center;
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+}
+
+.footer-qrcode img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--radius-md);
+}
+
+.footer-qrcode p {
+    color: var(--primary-purple);
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+    .footer-content-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-info {
+        text-align: center;
+    }
+    
+    .footer-qrcode {
+        margin: 0 auto;
+        max-width: 250px;
+    }
+}
+}
+
+/* === Form Styles === */
+.form-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--light-gray);
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ฟอร์มบุคลากรภายนอก - สีเขียว */
+.form-container.external {
+    border-top: 5px solid var(--external-primary);
+}
+
+.form-container.external .form-header {
+    background: var(--external-light);
+    color: var(--external-primary);
+}
+
+.form-container.external .btn-submit {
+    background: var(--external-primary);
+}
+
+.form-container.external .btn-submit:hover {
+    background: var(--external-secondary);
+}
+
+/* ฟอร์มบุคลากรภายใน + คณะทำงาน - สีชมพู */
+.form-container.internal {
+    border-top: 5px solid var(--internal-primary);
+}
+
+.form-container.internal .form-header {
+    background: var(--internal-light);
+    color: var(--internal-primary);
+}
+
+.form-container.internal .btn-submit {
+    background: var(--internal-primary);
+}
+
+.form-container.internal .btn-submit:hover {
+    background: var(--internal-secondary);
+}
+
+/* ฟอร์มคณะทำงาน - สีม่วง */
+.form-container.staff {
+    border-top: 5px solid var(--staff-primary);
+}
+
+.form-container.staff .form-header {
+    background: var(--staff-light);
+    color: var(--staff-primary);
+}
+
+.form-container.staff .btn-submit {
+    background: var(--staff-primary);
+}
+
+.form-container.staff .btn-submit:hover {
+    background: var(--staff-secondary);
+}
+
+.form-header {
+    padding: var(--spacing-lg);
+    margin: calc(-1 * var(--spacing-xl)) calc(-1 * var(--spacing-xl)) var(--spacing-xl);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    text-align: center;
+}
+
+.form-header h2 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.form-group label.required::after {
+    content: ' *';
+    color: #f44336;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 2px solid #ddd;
+    border-radius: var(--radius-md);
+    font-family: 'Sarabun', sans-serif;
+    font-size: var(--font-size-base);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-note {
+    font-size: var(--font-size-sm);
+    color: var(--gray);
+    margin-top: var(--spacing-xs);
+    font-style: italic;
+}
+
+/* === Radio และ Checkbox Styles === */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.radio-option,
+.checkbox-option {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border: 2px solid #ddd;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.radio-option:hover,
+.checkbox-option:hover {
+    background: var(--light-gray);
+    border-color: var(--primary-purple);
+}
+
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.radio-option label,
+.checkbox-option label {
+    flex: 1;
+    cursor: pointer;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+/* ส่วนที่ซ่อน/แสดงตามเงื่อนไข */
+.conditional-fields {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--light-gray);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-purple);
+    display: none;
+}
+
+.conditional-fields.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.conditional-fields h4 {
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-lg);
+}
+
+/* === Submit Button === */
+.btn-submit {
+    width: 100%;
+    padding: var(--spacing-md);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-family: 'Sarabun', sans-serif;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* === Alert Messages === */
+.alert {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-lg);
+    display: none;
+}
+
+.alert.show {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+/* === Loading Spinner === */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* === Dashboard Styles === */
+.dashboard-header {
+    background: var(--primary-purple);
+    color: var(--white);
+    padding: var(--spacing-xl) 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.stat-card {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+}
+
+.stat-number {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--primary-purple);
+}
+
+.stat-label {
+    color: var(--gray);
+    margin-top: var(--spacing-xs);
+}
+
+.filters {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.filters select,
+.filters input {
+    padding: var(--spacing-sm);
+    border: 2px solid #ddd;
+    border-radius: var(--radius-md);
+    font-family: 'Sarabun', sans-serif;
+}
+
+.table-container {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: var(--primary-purple);
+    color: var(--white);
+}
+
+thead th {
+    padding: var(--spacing-md);
+    text-align: left;
+    font-weight: 600;
+}
+
+tbody td {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background: var(--light-gray);
+}
+
+.badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.badge-external {
+    background: var(--external-light);
+    color: var(--external-primary);
+}
+
+.badge-internal {
+    background: var(--internal-light);
+    color: var(--internal-primary);
+}
+
+.badge-staff {
+    background: var(--staff-light);
+    color: var(--staff-primary);
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--primary-purple);
+        flex-direction: column;
+        padding: var(--spacing-md);
+        display: none;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .registration-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .image-slider {
+        height: 250px;
+    }
+    
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+    
+    .filters select,
+    .filters input {
+        width: 100%;
+    }
+    
+    table {
+        font-size: var(--font-size-sm);
+    }
+    
+    thead th,
+    tbody td {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* === Tab Navigation === */
+.tab-navigation {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 2px solid #ddd;
+    overflow-x: auto;
+}
+
+.tab-btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-family: 'Sarabun', sans-serif;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--gray);
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: var(--primary-purple);
+}
+
+.tab-btn.active {
+    color: var(--primary-purple);
+    border-bottom-color: var(--primary-purple);
+}
+
+.tab-btn i {
+    margin-right: var(--spacing-xs);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Testing & Evaluation Styles === */
+.testing-container {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.testing-container h3 {
+    color: var(--primary-purple);
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.testing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.testing-card {
+    background: var(--white);
+    border: 2px solid #ddd;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+}
+
+.testing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-purple);
+}
+
+.testing-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.testing-card h4 {
+    color: var(--primary-purple);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+}
+
+.testing-card p {
+    color: var(--gray);
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-testing,
+.btn-evaluation {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: var(--white);
+    background: var(--primary-purple);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    transition: var(--transition);
+    margin-top: var(--spacing-sm);
+}
+
+.btn-testing:hover,
+.btn-evaluation:hover {
+    background: var(--primary-purple-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.testing-card.completed {
+    border-color: #4CAF50;
+    background: #f1f8f4;
+}
+
+.completed-badge {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: #4CAF50;
+    color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+/* === Download Styles === */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.download-card {
+    background: var(--white);
+    border: 2px solid #ddd;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.download-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-purple);
+}
+
+.download-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    background: var(--light-gray);
+    color: var(--primary-purple);
+}
+
+.download-card h4 {
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-sm);
+}
+
+.download-card p {
+    color: var(--gray);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-download {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary-purple);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-download:hover {
+    background: var(--primary-purple-dark);
+    transform: translateY(-2px);
+}
+
+/* === Certificate Form === */
+.certificate-form {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+/* === Hotel Styles === */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.hotel-card {
+    background: var(--white);
+    border: 2px solid #ddd;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-purple);
+}
+
+.hotel-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    background: var(--primary-purple);
+    color: var(--white);
+}
+
+.hotel-card h4 {
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-md);
+}
+
+.btn-hotel {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary-purple);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-hotel:hover {
+    background: var(--primary-purple-dark);
+}
+
+/* === Info Box === */
+.info-box {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-purple);
+}
+
+.info-box h4 {
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-md);
+}
+
+/* === Dashboard Controls === */
+.dashboard-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.export-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.btn-export,
+.btn-refresh {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary-purple);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: 'Sarabun', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-export:hover,
+.btn-refresh:hover {
+    background: var(--primary-purple-dark);
+}
+
+.btn-refresh {
+    background: var(--gray);
+}
+
+.btn-refresh:hover {
+    background: var(--dark-gray);
+}
+
+/* === Workshop Stats === */
+.workshop-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.workshop-detail-card {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.workshop-detail-card h5 {
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* === Status Badge === */
+.status-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.status-pending {
+    background: #FFF3E0;
+    color: #E65100;
+}
+
+.status-confirmed {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.status-cancelled {
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+/* === Auto-refresh Info === */
+.auto-refresh-info {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--light-gray);
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-lg);
+    color: var(--gray);
+    font-size: var(--font-size-sm);
+}
+
+/* === Contact Page Styles === */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* === Abstract Submission Section === */
+.abstract-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--light-gray);
+}
+
+.abstract-content {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.abstract-guidelines {
+    text-align: left;
+}
+
+.guidelines-list {
+    padding-left: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.guidelines-list li {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+    font-size: var(--font-size-base);
+    color: var(--dark-gray);
+}
+
+.abstract-note {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-purple);
+    margin: var(--spacing-xl) 0;
+}
+
+.abstract-note p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
+}
+
+.abstract-note strong {
+    color: var(--primary-purple);
+}
+
+.abstract-button-container {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.btn-abstract-submit {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-2xl);
+    background: var(--primary-purple);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-abstract-submit:hover {
+    background: var(--primary-purple-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-abstract-submit i {
+    margin-right: var(--spacing-sm);
+}
+
+/* === Contact Page Styles === */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.contact-info-card {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-info-card h3 {
+    color: var(--primary-purple);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--primary-purple);
+    padding-bottom: var(--spacing-sm);
+}
+
+.contact-item {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-purple);
+    margin-top: 4px;
+}
+
+.contact-item h4 {
+    color: var(--primary-purple);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-item p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.contact-item a {
+    color: var(--primary-purple);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.coordinator-card {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    margin-top: var(--spacing-md);
+}
+
+.coordinator-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    background: var(--primary-purple);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.coordinator-card h4 {
+    color: var(--primary-purple);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-xs);
+}
+
+.coordinator-card .position {
+    color: var(--gray);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.coordinator-card .contact-item {
+    justify-content: center;
+    text-align: left;
+}
+
+.map-container {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.map-embed {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+    .tab-navigation {
+        flex-direction: row;
+        overflow-x: scroll;
+    }
+    
+    .testing-grid,
+    .download-grid,
+    .hotel-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .export-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .section-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .image-slider {
+        height: 200px;
+    }
+}
