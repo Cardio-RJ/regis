@@ -462,22 +462,66 @@ img {
     padding: var(--spacing-xl) 0 var(--spacing-md);
 }
 
-.footer-content {
-    text-align: center;
+.footer-content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
 }
 
-.footer-content p {
+.footer-info {
+    text-align: left;
+}
+
+.footer-info p {
     margin: var(--spacing-xs) 0;
     line-height: 1.8;
 }
 
-.footer-content a {
+.footer-info a {
     color: var(--accent-gold);
     text-decoration: none;
 }
 
-.footer-content a:hover {
+.footer-info a:hover {
     text-decoration: underline;
+}
+
+.footer-qrcode {
+    text-align: center;
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+}
+
+.footer-qrcode img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--radius-md);
+}
+
+.footer-qrcode p {
+    color: var(--primary-purple);
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+    .footer-content-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-info {
+        text-align: center;
+    }
+    
+    .footer-qrcode {
+        margin: 0 auto;
+        max-width: 250px;
+    }
+}
 }
 
 /* === Form Styles === */
@@ -1303,6 +1347,90 @@ tbody tr:hover {
     margin-top: var(--spacing-lg);
     color: var(--gray);
     font-size: var(--font-size-sm);
+}
+
+/* === Contact Page Styles === */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* === Abstract Submission Section === */
+.abstract-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--light-gray);
+}
+
+.abstract-content {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.abstract-guidelines {
+    text-align: left;
+}
+
+.guidelines-list {
+    padding-left: var(--spacing-xl);
+    margin: var(--spacing-lg) 0;
+}
+
+.guidelines-list li {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+    font-size: var(--font-size-base);
+    color: var(--dark-gray);
+}
+
+.abstract-note {
+    background: var(--light-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-purple);
+    margin: var(--spacing-xl) 0;
+}
+
+.abstract-note p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
+}
+
+.abstract-note strong {
+    color: var(--primary-purple);
+}
+
+.abstract-button-container {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.btn-abstract-submit {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-2xl);
+    background: var(--primary-purple);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-abstract-submit:hover {
+    background: var(--primary-purple-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-abstract-submit i {
+    margin-right: var(--spacing-sm);
 }
 
 /* === Contact Page Styles === */
