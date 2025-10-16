@@ -1359,7 +1359,7 @@ tbody tr:hover {
 
 /* === Abstract Submission Section === */
 .abstract-section {
-    padding: var(--spacing-3xl) 0;
+    padding: var(--spacing-3xl) 0;  
     background: var(--light-gray);
 }
 
@@ -1369,7 +1369,7 @@ tbody tr:hover {
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-md);
     max-width: 900px;
-    margin-bottom: var(--spacing-sm);
+    margin:var(--spacing-lg) 0;
 }
 
 .abstract-guidelines {
