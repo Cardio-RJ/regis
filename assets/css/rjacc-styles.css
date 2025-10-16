@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RJACC2025 - ศูนย์ความเป็นเลิศทางการแพทย์เฉพาะทาง ด้านโรคหัวใจและหลอดเลือด โรงพยาบาลราชวิถี</title>
+    <title>ติดต่อเรา - RJACC2025</title>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,257 +23,160 @@
                 <span></span>
             </button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="active"><i class="fas fa-home"></i> หน้าหลัก</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a></li>
                 <li><a href="dashboard.html"><i class="fas fa-list-check"></i> ตรวจสอบรายชื่อ</a></li>
                 <li><a href="testing.html"><i class="fas fa-clipboard-check"></i> Testing & Evaluation</a></li>
                 <li><a href="download.html"><i class="fas fa-download"></i> Download</a></li>
-                <li><a href="contact.html"><i class="fas fa-envelope"></i> ติดต่อ</a></li>
+                <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> ติดต่อ</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Banner -->
-    <section class="banner">
-        <div class="container">
-            <div class="banner-placeholder">
-                <img src="https://via.placeholder.com/1200x400/471D55/FFFFFF?text=RJACC2025+Conference+Banner" alt="RJACC2025 Banner">
-            </div>
-        </div>
-    </section>
-
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="padding: 3rem 0;">
         <div class="container">
             <div class="hero-content">
-                <h2 class="hero-title">Rajavithi Academic Conference on Cardiac Care 2025</h2>
-                <p class="hero-subtitle">การประชุมวิชาการ RJACC2025</p>
-                <p class="hero-description">
-                    ศูนย์ความเป็นเลิศทางการแพทย์เฉพาะทาง ด้านโรคหัวใจและหลอดเลือด<br>
-                    โรงพยาบาลราชวิถี กรมการแพทย์
-                </p>
+                <h2 class="hero-title"><i class="fas fa-envelope"></i> ติดต่อเรา</h2>
+                <p class="hero-subtitle">ศูนย์ความเป็นเลิศทางการแพทย์เฉพาะทาง ด้านโรคหัวใจและหลอดเลือด</p>
             </div>
         </div>
     </section>
 
-    <!-- Main Image Slider (20 images) -->
-    <section class="image-slider-section">
+    <!-- Contact Section -->
+    <section class="form-section">
         <div class="container">
-            <h2 class="section-title">ภาพกิจกรรม</h2>
-            <div class="image-slider" id="mainSlider">
-                <div class="slider-track" id="mainSliderTrack">
-                    <!-- 20 Slides -->
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/4CAF50/FFFFFF?text=Slide+1" alt="Slide 1">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-building"></i> โรงพยาบาลราชวิถี</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>ที่อยู่</h4>
+                            <p>เลขที่ 2 ชั้น 9 อาคารเฉลิมพระเกียรติฯ<br>
+                            ถนนพญาไท แขวงทุ่งพญาไท เขตราชเทวี<br>
+                            กรุงเทพมหานคร 10400</p>
+                        </div>
                     </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/2196F3/FFFFFF?text=Slide+2" alt="Slide 2">
+
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>โทรศัพท์</h4>
+                            <p><a href="tel:022602900">02-260-2900</a> ต่อ 78042</p>
+                        </div>
                     </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/E91E63/FFFFFF?text=Slide+3" alt="Slide 3">
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>อีเมล</h4>
+                            <p><a href="mailto:info.nst@rajavithi.go.th">info.nst@rajavithi.go.th</a></p>
+                        </div>
                     </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/FF9800/FFFFFF?text=Slide+4" alt="Slide 4">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/9C27B0/FFFFFF?text=Slide+5" alt="Slide 5">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/00BCD4/FFFFFF?text=Slide+6" alt="Slide 6">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/8BC34A/FFFFFF?text=Slide+7" alt="Slide 7">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/FF5722/FFFFFF?text=Slide+8" alt="Slide 8">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/673AB7/FFFFFF?text=Slide+9" alt="Slide 9">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/03A9F4/FFFFFF?text=Slide+10" alt="Slide 10">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/CDDC39/333333?text=Slide+11" alt="Slide 11">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/FF4081/FFFFFF?text=Slide+12" alt="Slide 12">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/7C4DFF/FFFFFF?text=Slide+13" alt="Slide 13">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/00E676/333333?text=Slide+14" alt="Slide 14">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/FF6E40/FFFFFF?text=Slide+15" alt="Slide 15">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/536DFE/FFFFFF?text=Slide+16" alt="Slide 16">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/69F0AE/333333?text=Slide+17" alt="Slide 17">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/FF3D00/FFFFFF?text=Slide+18" alt="Slide 18">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/448AFF/FFFFFF?text=Slide+19" alt="Slide 19">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/1200x400/FFD740/333333?text=Slide+20" alt="Slide 20">
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>เวลาทำการ</h4>
+                            <p>จันทร์ - ศุกร์: 08:00 - 16:30 น.<br>
+                            (ปิดวันเสาร์ - อาทิตย์ และวันหยุดนักขัตฤกษ์)</p>
+                        </div>
                     </div>
                 </div>
-                <div class="slider-controls" id="mainSliderControls"></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Registration Cards -->
-    <section class="registration-section">
-        <div class="container">
-            <h2 class="section-title">เลือกประเภทการลงทะเบียน</h2>
-            <div class="registration-grid">
-                <!-- บุคลากรภายนอก - สีเขียว -->
-                <div class="registration-card external">
-                    <div class="card-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="card-title">บุคลากรภายนอก</h3>
-                    <p class="card-description">
-                        สำหรับบุคลากรทางการแพทย์<br>
-                        จากสถาบันอื่น ๆ
-                    </p>
-                    <a href="registration-external.html" class="btn-register">ลงทะเบียนเลย</a>
-                </div>
-
-                <!-- บุคลากรภายใน - สีชมพู -->
-                <div class="registration-card internal">
-                    <div class="card-icon">
-                        <i class="fas fa-user-nurse"></i>
-                    </div>
-                    <h3 class="card-title">บุคลากรภายใน</h3>
-                    <p class="card-description">
-                        สำหรับบุคลากร<br>
-                        โรงพยาบาลราชวิถี
-                    </p>
-                    <a href="registration-internal.html" class="btn-register">ลงทะเบียนเลย</a>
-                </div>
-
-                <!-- คณะทำงาน - สีชมพู -->
-                <div class="registration-card staff">
-                    <div class="card-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <h3 class="card-title">คณะทำงาน</h3>
-                    <p class="card-description">
-                        สำหรับคณะทำงาน<br>
-                        จัดงานประชุมวิชาการ
-                    </p>
-                    <a href="registration-staff.html" class="btn-register">ลงทะเบียนเลย</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Abstract Submission Section -->
-    <section class="abstract-section">
-        <div class="container">
-            <h2 class="section-title">หลักเกณฑ์การส่งบทความ</h2>
-            
-            <div class="abstract-content">
-                <div class="abstract-guidelines">
-                    <ol class="guidelines-list">
-                        <li>บทความต้องเป็นผลงานวิจัยหรือนวัตกรรมทางการแพทย์และการพยาบาล</li>
-                        <li>ส่งบทความในรูปแบบ Microsoft Word หรือ PDF ตามแบบฟอร์มที่กำหนด</li>
-                        <li>บทความต้องมีความยาวไม่เกิน 8 หน้า A4 รวมตาราง แผนภูมิ และรูปภาพ</li>
-                        <li>ส่งบทความภายในวันที่ 15 มกราคม 2569</li>
-                    </ol>
+                <!-- Coordinator Info -->
+                <div class="contact-info-card">
+                    <h3><i class="fas fa-user-tie"></i> ผู้ประสานงาน</h3>
                     
-                    <div class="abstract-note">
-                        <p><strong>รายละเอียดเพิ่มเติม และ Template สามารถดาวน์โหลดจาก</strong></p>
-                        <p>เมนู <strong>Download</strong> ไปที่หัวข้อ <strong>แบบฟอร์มส่งบทความ</strong> คลิก <strong>ดาวน์โหลด</strong></p>
-                    </div>
-                    
-                    <div class="abstract-button-container">
-                        <a href="https://forms.gle/YOUR_ABSTRACT_FORM_LINK" target="_blank" rel="noopener noreferrer" class="btn-abstract-submit">
-                            <i class="fas fa-file-upload"></i> ลงทะเบียนส่งบทความ
-                        </a>
+                    <div class="coordinator-card">
+                        <div class="coordinator-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h4>นายณัฐชัย  รัศมีดารา</h4>
+                        <p class="position">ผู้ช่วยพยาบาล</p>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <p>
+                                    <a href="tel:0658964590">065-896-4590</a><br>
+                                    <a href="tel:0825803334">082-580-3334</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p><a href="mailto:info.nst@rajavithi.go.th">info.nst@rajavithi.go.th</a></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Event Details -->
-    <section class="event-details">
-        <div class="container">
-            <h2 class="section-title">รายละเอียดการจัดงาน</h2>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <div class="detail-icon">📅</div>
-                    <h3>วันที่จัดงาน</h3>
-                    <p>21-23 มกราคม 2569</p>
+            <!-- Contact Form -->
+            <div class="form-container" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <div class="form-header" style="background: var(--primary-purple); color: var(--white);">
+                    <h3><i class="fas fa-paper-plane"></i> ส่งข้อความถึงเรา</h3>
+                    <p>หากมีคำถามหรือข้อสงสัย กรุณากรอกแบบฟอร์มด้านล่าง</p>
                 </div>
-                <div class="detail-card">
-                    <div class="detail-icon">📍</div>
-                    <h3>สถานที่</h3>
-                    <p>โรงพยาบาลราชวิถี<br>กรุงเทพมหานคร</p>
-                </div>
-                <div class="detail-card">
-                    <div class="detail-icon">👥</div>
-                    <h3>กลุ่มเป้าหมาย</h3>
-                    <p>บุคลากรทางการแพทย์<br>และสาธารณสุข</p>
-                </div>
-                <div class="detail-card">
-                    <div class="detail-icon">🎓</div>
-                    <h3>หน่วยกิตการศึกษา</h3>
-                    <p>รับรองโดย<br>แพทยสภา/พยาบาลสภา</p>
-                </div>
+
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="contactName" class="required">ชื่อ-นามสกุล</label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail" class="required">อีเมล</label>
+                        <input type="email" id="contactEmail" name="contactEmail" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactPhone" class="required">เบอร์โทรศัพท์</label>
+                        <input type="tel" id="contactPhone" name="contactPhone" pattern="[0-9]{10}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject" class="required">หัวข้อ</label>
+                        <select id="contactSubject" name="contactSubject" required>
+                            <option value="">-- เลือกหัวข้อ --</option>
+                            <option value="registration">เรื่องการลงทะเบียน</option>
+                            <option value="program">เรื่องโปรแกรมงาน</option>
+                            <option value="accommodation">เรื่องที่พัก</option>
+                            <option value="certificate">เรื่องใบประกาศ</option>
+                            <option value="payment">เรื่องการชำระเงิน</option>
+                            <option value="other">อื่น ๆ</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage" class="required">ข้อความ</label>
+                        <textarea id="contactMessage" name="contactMessage" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> ส่งข้อความ
+                    </button>
+                </form>
             </div>
-        </div>
-    </section>
 
-    <!-- Vertical Image Slider (5 images) -->
-    <section class="image-slider-section">
-        <div class="container">
-            <h2 class="section-title">ภาพกิจกรรมเพิ่มเติม</h2>
-            <div class="image-slider" id="secondarySlider" style="height: 500px;">
-                <div class="slider-track" id="secondarySliderTrack">
-                    <!-- 5 Vertical Slides -->
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/800x1000/471D55/FFFFFF?text=Vertical+1" alt="Vertical 1">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/800x1000/4CAF50/FFFFFF?text=Vertical+2" alt="Vertical 2">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/800x1000/E91E63/FFFFFF?text=Vertical+3" alt="Vertical 3">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/800x1000/2196F3/FFFFFF?text=Vertical+4" alt="Vertical 4">
-                    </div>
-                    <div class="slider-slide">
-                        <img src="https://via.placeholder.com/800x1000/FF9800/FFFFFF?text=Vertical+5" alt="Vertical 5">
-                    </div>
-                </div>
-                <div class="slider-controls" id="secondarySliderControls"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Info Section -->
-    <section class="contact-info-section">
-        <div class="container">
-            <div class="contact-info-content">
-                <div class="contact-box">
-                    <h3>ศูนย์ความเป็นเลิศทางการแพทย์เฉพาะทาง ด้านโรคหัวใจและหลอดเลือด โรงพยาบาลราชวิถี</h3>
-                </div>
-                <div class="contact-box">
-                    <h3>ผู้ประสานงาน</h3>
-                    <p><strong>นายณัฐชัย  รัศมีดารา</strong></p>
-                    <p><strong>ตำแหน่ง:</strong> ผู้ช่วยพยาบาล</p>
-                    <p><strong>โทรศัพท์:</strong> 065-8964590 , 082-5803334</p>
-                    <p><strong>อีเมล:</strong> info.nst@rajavithi.go.th</p>
+            <!-- Map Section -->
+            <div class="map-container" style="margin-top: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 2rem; color: var(--primary-purple);">
+                    <i class="fas fa-map-marked-alt"></i> แผนที่
+                </h3>
+                <div class="map-embed">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.2912345!2d100.5356789!3d13.7644484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ed269f2b3e7%3A0x2e53d4e3b93be1!2z4LmC4Lij4LiH4Lie4Lii4Liy4Lia4Liy4Lil4Lij4Liy4LiK4Lin4Li04LiW4Li1!5e0!3m2!1sth!2sth!4v1234567890"
+                        width="100%" 
+                        height="450" 
+                        style="border:0; border-radius: 12px;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -304,7 +207,44 @@
 
     <!-- Scripts -->
     <script src="assets/js/config.js"></script>
-    <script src="assets/js/slider.js"></script>
     <script src="assets/js/navigation.js"></script>
+    <script>
+        // Handle contact form
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('contactName').value.trim(),
+                email: document.getElementById('contactEmail').value.trim(),
+                phone: document.getElementById('contactPhone').value.trim(),
+                subject: document.getElementById('contactSubject').value,
+                message: document.getElementById('contactMessage').value.trim()
+            };
+            
+            try {
+                RJACCUtils.showLoading(document.querySelector('.btn-submit'));
+                
+                const response = await fetch(`${CONFIG.API_BASE_URL}?route=contactMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    RJACCUtils.showAlert('ส่งข้อความสำเร็จ! เจ้าหน้าที่จะติดต่อกลับโดยเร็ว', 'success');
+                    this.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                console.error('Contact Error:', error);
+                RJACCUtils.showAlert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง', 'error');
+            } finally {
+                RJACCUtils.hideLoading(document.querySelector('.btn-submit'));
+            }
+        });
+    </script>
 </body>
 </html>
