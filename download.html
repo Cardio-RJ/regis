@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ดาวน์โหลดเอกสาร - RJACC2025</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/rjacc-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/images/logo.png" alt="RJACC Logo">
+                <h1>RJACC2025</h1>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a></li>
+                <li><a href="dashboard.html"><i class="fas fa-list-check"></i> ตรวจสอบรายชื่อ</a></li>
+                <li><a href="testing.html"><i class="fas fa-clipboard-check"></i> Testing & Evaluation</a></li>
+                <li><a href="download.html" class="active"><i class="fas fa-download"></i> Download</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> ติดต่อ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="padding: 3rem 0;">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title"><i class="fas fa-download"></i> ศูนย์ดาวน์โหลด</h2>
+                <p class="hero-subtitle">เอกสาร ใบประกาศ และแบบฟอร์มต่าง ๆ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="form-section">
+        <div class="container">
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="documents">
+                    <i class="fas fa-file-alt"></i> เอกสารดาวน์โหลด
+                </button>
+                <button class="tab-btn" data-tab="certificate">
+                    <i class="fas fa-certificate"></i> Certificate
+                </button>
+                <button class="tab-btn" data-tab="hotel">
+                    <i class="fas fa-hotel"></i> แบบฟอร์มห้องพัก
+                </button>
+            </div>
+
+            <!-- Tab: เอกสารดาวน์โหลด -->
+            <div class="tab-content active" id="tab-documents">
+                <h3><i class="fas fa-file-alt"></i> เอกสารดาวน์โหลด</h3>
+                <p style="margin-bottom: 2rem; color: #666;">เอกสารและคู่มือสำหรับผู้เข้าร่วมประชุมวิชาการ</p>
+                
+                <div class="download-grid">
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h4>โปรแกรมการประชุม</h4>
+                        <p>กำหนดการประชุมวิชาการ 3 วัน</p>
+                        <a href="#" class="btn-download" data-file="program">
+                            <i class="fas fa-download"></i> ดาวน์โหลด
+                        </a>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h4>แผนที่สถานที่จัดงาน</h4>
+                        <p>แผนที่และคำแนะนำการเดินทาง</p>
+                        <a href="#" class="btn-download" data-file="map">
+                            <i class="fas fa-download"></i> ดาวน์โหลด
+                        </a>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <h4>แบบฟอร์มส่งบทความ</h4>
+                        <p>Template สำหรับส่งบทความวิชาการ</p>
+                        <a href="#" class="btn-download" data-file="abstract-template">
+                            <i class="fas fa-download"></i> ดาวน์โหลด
+                        </a>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <h4>คู่มือผู้เข้าร่วม</h4>
+                        <p>ข้อมูลและคำแนะนำสำหรับผู้เข้าร่วม</p>
+                        <a href="#" class="btn-download" data-file="handbook">
+                            <i class="fas fa-download"></i> ดาวน์โหลด
+                        </a>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-file-powerpoint"></i>
+                        </div>
+                        <h4>สไลด์บรรยาย</h4>
+                        <p>เอกสารประกอบการบรรยาย</p>
+                        <a href="#" class="btn-download" data-file="slides">
+                            <i class="fas fa-download"></i> ดาวน์โหลด
+                        </a>
+                    </div>
+
+                    <div class="download-card">
+                        <div class="download-icon">
+                            <i class="fas fa-file-archive"></i>
+                        </div>
+                        <h4>เอกสารทั้งหมด</h4>
+                        <p>ดาวน์โหลดเอกสารทั้งหมดในไฟล์เดียว</p>
+                        <a href="#" class="btn-download" data-file="all-documents">
+                            <i class="fas fa-download"></i> ดาวน์โหลด (ZIP)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Certificate -->
+            <div class="tab-content" id="tab-certificate">
+                <h3><i class="fas fa-certificate"></i> ใบประกาศผู้เข้าร่วมงาน</h3>
+                <p style="margin-bottom: 2rem; color: #666;">ตรวจสอบสิทธิ์และดาวน์โหลดใบประกาศ</p>
+                
+                <div class="certificate-form">
+                    <div class="info-box">
+                        <h4><i class="fas fa-info-circle"></i> เงื่อนไขการรับใบประกาศ</h4>
+                        <ul style="padding-left: 1.5rem; line-height: 1.8;">
+                            <li>ลงทะเบียนเข้าร่วมงานและได้รับการยืนยันแล้ว</li>
+                            <li>ทำแบบทดสอบ Pre-test และ Post-test ครบถ้วน</li>
+                            <li>ทำแบบประเมินความพึงพอใจครบทุกวันที่เข้าร่วม</li>
+                            <li>เข้าร่วมการประชุมไม่น้อยกว่า 80% ของเวลา</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-container" style="max-width: 600px; margin: 2rem auto;">
+                        <h4>ตรวจสอบสิทธิ์และดาวน์โหลดใบประกาศ</h4>
+                        
+                        <div class="form-group">
+                            <label for="certEmail" class="required">อีเมลที่ใช้ลงทะเบียน</label>
+                            <input type="email" id="certEmail" placeholder="example@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="certPhone" class="required">เบอร์โทรศัพท์</label>
+                            <input type="tel" id="certPhone" placeholder="0812345678" required>
+                        </div>
+
+                        <button type="button" class="btn-submit" id="btnCheckCertificate">
+                            <i class="fas fa-search"></i> ตรวจสอบสิทธิ์
+                        </button>
+
+                        <div id="certificateResult" style="margin-top: 2rem; display: none;">
+                            <!-- ผลการตรวจสอบจะแสดงที่นี่ -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: แบบฟอร์มห้องพัก -->
+            <div class="tab-content" id="tab-hotel">
+                <h3><i class="fas fa-hotel"></i> แบบฟอร์มห้องพัก</h3>
+                <p style="margin-bottom: 2rem; color: #666;">รายชื่อโรงแรมที่แนะนำและแบบฟอร์มจองห้องพัก</p>
+                
+                <div class="hotel-grid" id="hotelList">
+                    <!-- จะถูกสร้างโดย JavaScript -->
+                </div>
+
+                <div class="info-box" style="margin-top: 2rem;">
+                    <h4><i class="fas fa-info-circle"></i> หมายเหตุ</h4>
+                    <ul style="padding-left: 1.5rem; line-height: 1.8;">
+                        <li>รายชื่อโรงแรมเป็นเพียงข้อแนะนำ ผู้เข้าร่วมสามารถเลือกโรงแรมอื่นได้</li>
+                        <li>กรุณาติดต่อโรงแรมโดยตรงเพื่อสอบถามรายละเอียดและจองห้องพัก</li>
+                        <li>ค่าใช้จ่ายในการเข้าพักเป็นความรับผิดชอบของผู้เข้าร่วม</li>
+                        <li>แนะนำให้จองห้องพักล่วงหน้าเพื่อรับราคาพิเศษ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p><strong>โรงพยาบาลราชวิถี กรมการแพทย์ (งานถ่ายทอดการพยาบาล กลุ่มงานวิชาการพยาบาล)</strong></p>
+                <p>เลขที่ 2 ชั้น 9 อาคารเฉลิมพระเกียรติฯ ถนนพญาไท แขวงทุ่งพญาไท เขตราชเทวี กรุงเทพฯ 10400</p>
+                <p>
+                    📧 Email: <a href="mailto:info.nst@rajavithi.go.th">info.nst@rajavithi.go.th</a> | 
+                    📞 Tel: <a href="tel:022602900">02-260-2900</a> ต่อ 78042
+                </p>
+                <p>&copy; 2025 RJACC2025 ศูนย์ความเป็นเลิศทางการแพทย์เฉพาะทาง ด้านโรคหัวใจและหลอดเลือด - โรงพยาบาลราชวิถี</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/download.js"></script>
+</body>
+</html>
