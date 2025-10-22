@@ -1,214 +1,282 @@
-// ฟังก์ชันสำหรับแสดง/ซ่อนฟิลด์ตามเงื่อนไข
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ * RJACC2025 - Internal Registration Form Handler
+ * จัดการฟอร์มลงทะเบียนบุคลากรภายใน
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('registrationForm');
     
-    // ========== 1. จัดการสังกัดอื่นๆ ==========
-    const affiliationSelect = document.getElementById('affiliation');
-    const otherAffiliationField = document.getElementById('otherAffiliationField');
-    const otherAffiliationInput = document.getElementById('otherAffiliation');
-    
-    if (affiliationSelect) {
-        affiliationSelect.addEventListener('change', function() {
-            if (this.value === 'อื่นๆ') {
-                otherAffiliationField.style.display = 'block';
-                otherAffiliationInput.required = true;
-            } else {
-                otherAffiliationField.style.display = 'none';
-                otherAffiliationInput.required = false;
-                otherAffiliationInput.value = '';
-            }
-        });
-    }
-    
-    // ========== 2. จัดการตำแหน่งอื่นๆ ==========
+    // Elements
     const positionSelect = document.getElementById('position');
     const otherPositionField = document.getElementById('otherPositionField');
     const otherPositionInput = document.getElementById('otherPosition');
     
-    if (positionSelect) {
-        positionSelect.addEventListener('change', function() {
-            if (this.value === 'อื่นๆ') {
-                otherPositionField.style.display = 'block';
-                otherPositionInput.required = true;
-            } else {
-                otherPositionField.style.display = 'none';
-                otherPositionInput.required = false;
-                otherPositionInput.value = '';
-            }
-        });
-    }
-    
-    // ========== 3. จัดการประเภทอาหารอื่นๆ ==========
-    const foodTypeSelect = document.getElementById('foodType');
-    const otherFoodTypeField = document.getElementById('otherFoodTypeField');
-    const otherFoodTypeInput = document.getElementById('otherFoodType');
-    
-    if (foodTypeSelect) {
-        foodTypeSelect.addEventListener('change', function() {
-            if (this.value === 'อื่นๆ') {
-                otherFoodTypeField.style.display = 'block';
-                otherFoodTypeInput.required = true;
-            } else {
-                otherFoodTypeField.style.display = 'none';
-                otherFoodTypeInput.required = false;
-                otherFoodTypeInput.value = '';
-            }
-        });
-    }
-    
-    // ========== 4. จัดการใบเสร็จ ==========
     const receiptYes = document.getElementById('receiptYes');
     const receiptNo = document.getElementById('receiptNo');
     const receiptFields = document.getElementById('receiptFields');
-    const receiptNameInput = document.getElementById('receiptName');
-    const receiptAddressInput = document.getElementById('receiptAddress');
-    const taxIdInput = document.getElementById('taxId');
+    const receiptName = document.getElementById('receiptName');
+    const receiptAddress = document.getElementById('receiptAddress');
+    const taxId = document.getElementById('taxId');
     
-    function toggleReceiptFields() {
-        if (receiptYes && receiptYes.checked) {
-            receiptFields.style.display = 'block';
-            receiptNameInput.required = true;
-            receiptAddressInput.required = true;
-            taxIdInput.required = true;
-        } else {
-            receiptFields.style.display = 'none';
-            receiptNameInput.required = false;
-            receiptAddressInput.required = false;
-            taxIdInput.required = false;
-            receiptNameInput.value = '';
-            receiptAddressInput.value = '';
-            taxIdInput.value = '';
-        }
-    }
-    
-    if (receiptYes) {
-        receiptYes.addEventListener('change', toggleReceiptFields);
-    }
-    if (receiptNo) {
-        receiptNo.addEventListener('change', toggleReceiptFields);
-    }
-    
-    // ========== 5. จัดการ Workshop ==========
     const workshopYes = document.getElementById('workshopYes');
     const workshopNo = document.getElementById('workshopNo');
     const workshopFields = document.getElementById('workshopFields');
-    const workshopCheckboxes = document.querySelectorAll('input[name="workshops"]');
+    const workshopCheckboxes = document.getElementById('workshopCheckboxes');
     
-    function toggleWorkshopFields() {
-        if (workshopYes && workshopYes.checked) {
-            workshopFields.style.display = 'block';
-            // ไม่บังคับให้เลือก checkbox แต่ต้องเลือกอย่างน้อย 1 ถ้าเลือก "ต้องการเข้าร่วม"
-        } else {
-            workshopFields.style.display = 'none';
-            // ยกเลิกการเลือก checkbox ทั้งหมด
-            workshopCheckboxes.forEach(checkbox => {
-                checkbox.checked = false;
-            });
-        }
+    // Initialize
+    init();
+    
+    function init() {
+        createWorkshopCheckboxes();
+        setupConditionalFields();
+        setupFormValidation();
+        setupFormSubmission();
     }
     
-    if (workshopYes) {
-        workshopYes.addEventListener('change', toggleWorkshopFields);
-    }
-    if (workshopNo) {
-        workshopNo.addEventListener('change', toggleWorkshopFields);
-    }
-    
-    // ========== 6. Validation ฟอร์ม ==========
-    const form = document.getElementById('registrationForm');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+    function createWorkshopCheckboxes() {
+        workshopCheckboxes.innerHTML = '';
+        
+        CONFIG.WORKSHOPS.forEach((workshop) => {
+            const checkboxOption = document.createElement('div');
+            checkboxOption.className = 'checkbox-option';
             
-            // ตรวจสอบว่าถ้าเลือก "ต้องการเข้าร่วม Workshop" ต้องเลือกอย่างน้อย 1 workshop
-            if (workshopYes.checked) {
-                const selectedWorkshops = Array.from(workshopCheckboxes).filter(cb => cb.checked);
-                if (selectedWorkshops.length === 0) {
-                    alert('กรุณาเลือก Workshop อย่างน้อย 1 หัวข้อ');
-                    return;
-                }
-            }
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `workshop_${workshop.id}`;
+            checkbox.name = 'workshops';
+            checkbox.value = workshop.id;
             
-            // ตรวจสอบเบอร์โทรศัพท์
-            const phoneInput = document.getElementById('phone');
-            const phonePattern = /^[0-9]{10}$/;
-            if (!phonePattern.test(phoneInput.value)) {
-                alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10 หลัก)');
-                phoneInput.focus();
-                return;
-            }
+            const label = document.createElement('label');
+            label.htmlFor = `workshop_${workshop.id}`;
+            label.innerHTML = `<strong>${workshop.date}</strong> ${workshop.time}<br>
+                               Topic: ${workshop.topic} - ${workshop.room}`;
             
-            // ตรวจสอบเลขประจำตัวผู้เสียภาษี (ถ้ามีการกรอก)
-            if (receiptYes.checked && taxIdInput.value) {
-                const taxIdPattern = /^[0-9]{13}$/;
-                if (!taxIdPattern.test(taxIdInput.value)) {
-                    alert('กรุณากรอกเลขประจำตัวผู้เสียภาษีให้ถูกต้อง (13 หลัก)');
-                    taxIdInput.focus();
-                    return;
-                }
-            }
-            
-            // ตรวจสอบไฟล์หลักฐานการชำระเงิน
-            const paymentProofInput = document.getElementById('paymentProof');
-            if (paymentProofInput.files.length === 0) {
-                alert('กรุณาแนบหลักฐานการชำระเงิน');
-                paymentProofInput.focus();
-                return;
-            }
-            
-            // ตรวจสอบนามสกุลไฟล์
-            const allowedExtensions = ['png', 'jpg', 'jpeg'];
-            const fileName = paymentProofInput.files[0].name;
-            const fileExtension = fileName.split('.').pop().toLowerCase();
-            if (!allowedExtensions.includes(fileExtension)) {
-                alert('กรุณาแนบไฟล์ประเภท PNG หรือ JPG เท่านั้น');
-                paymentProofInput.focus();
-                return;
-            }
-            
-            // ถ้าผ่านทุกการตรวจสอบ
-            if (confirm('คุณต้องการส่งแบบฟอร์มนี้หรือไม่?')) {
-                // รวบรวมข้อมูล
-                const formData = new FormData(form);
-                
-                // แสดงข้อมูลที่จะส่ง (สำหรับทดสอบ)
-                console.log('=== ข้อมูลที่จะส่ง ===');
-                for (let [key, value] of formData.entries()) {
-                    console.log(key + ': ' + value);
-                }
-                
-                // รวมข้อมูล workshops ที่เลือก
-                const selectedWorkshops = Array.from(workshopCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
-                console.log('Workshops ที่เลือก:', selectedWorkshops);
-                
-                // ส่งข้อมูลไปยังเซิร์ฟเวอร์ (ปรับแต่ง URL ตามจริง)
-                alert('แบบฟอร์มถูกส่งเรียบร้อยแล้ว!\n(ในการใช้งานจริง ข้อมูลจะถูกส่งไปยังเซิร์ฟเวอร์)');
-                
-                // สามารถใช้ fetch API เพื่อส่งข้อมูล
-                /*
-                fetch('your-api-endpoint.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert('ลงทะเบียนสำเร็จ!');
-                    form.reset();
-                })
-                .catch(error => {
-                    alert('เกิดข้อผิดพลาด: ' + error.message);
-                });
-                */
-            }
+            checkboxOption.appendChild(checkbox);
+            checkboxOption.appendChild(label);
+            workshopCheckboxes.appendChild(checkboxOption);
         });
     }
     
-    // ========== 7. เริ่มต้น - ซ่อนฟิลด์ที่เป็น conditional ==========
-    if (otherAffiliationField) otherAffiliationField.style.display = 'none';
-    if (otherPositionField) otherPositionField.style.display = 'none';
-    if (otherFoodTypeField) otherFoodTypeField.style.display = 'none';
-    if (receiptFields) receiptFields.style.display = 'none';
-    if (workshopFields) workshopFields.style.display = 'none';
+    function setupConditionalFields() {
+        // ตำแหน่ง - อื่น ๆ
+        positionSelect.addEventListener('change', () => {
+            if (positionSelect.value === 'other') {
+                otherPositionField.classList.add('show');
+                otherPositionInput.setAttribute('required', '');
+            } else {
+                otherPositionField.classList.remove('show');
+                otherPositionInput.removeAttribute('required');
+                otherPositionInput.value = '';
+            }
+        });
+        
+        // ใบเสร็จ
+        [receiptYes, receiptNo].forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (receiptYes.checked) {
+                    receiptFields.classList.add('show');
+                    receiptName.setAttribute('required', '');
+                    receiptAddress.setAttribute('required', '');
+                    taxId.setAttribute('required', '');
+                } else {
+                    receiptFields.classList.remove('show');
+                    receiptName.removeAttribute('required');
+                    receiptAddress.removeAttribute('required');
+                    taxId.removeAttribute('required');
+                    receiptName.value = '';
+                    receiptAddress.value = '';
+                    taxId.value = '';
+                }
+            });
+        });
+        
+        // Workshop
+        [workshopYes, workshopNo].forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (workshopYes.checked) {
+                    workshopFields.classList.add('show');
+                } else {
+                    workshopFields.classList.remove('show');
+                    const checkboxes = workshopCheckboxes.querySelectorAll('input[type="checkbox"]');
+                    checkboxes.forEach(cb => cb.checked = false);
+                }
+            });
+        });
+    }
+    
+    function setupFormValidation() {
+        const inputs = form.querySelectorAll('input, select, textarea');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => validateField(input));
+            input.addEventListener('input', () => clearFieldError(input));
+        });
+    }
+    
+    function validateField(field) {
+        clearFieldError(field);
+        
+        if (!field.required) return true;
+        
+        let isValid = true;
+        let errorMessage = '';
+        
+        if (!field.value.trim()) {
+            isValid = false;
+            errorMessage = 'กรุณากรอกข้อมูลในช่องนี้';
+        }
+        else if (field.type === 'email' && !RJACCUtils.validateEmail(field.value)) {
+            isValid = false;
+            errorMessage = 'กรุณากรอกอีเมลให้ถูกต้อง';
+        }
+        else if (field.type === 'tel' && !RJACCUtils.validatePhone(field.value)) {
+            isValid = false;
+            errorMessage = 'กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10 หลัก)';
+        }
+        else if (field.id === 'taxId' && field.value.length !== 13) {
+            isValid = false;
+            errorMessage = 'กรุณากรอกเลขผู้เสียภาษี 13 หลัก';
+        }
+        
+        if (!isValid) {
+            showFieldError(field, errorMessage);
+        }
+        
+        return isValid;
+    }
+    
+    function showFieldError(field, message) {
+        field.classList.add('error');
+        
+        let errorDiv = field.parentElement.querySelector('.field-error');
+        if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.className = 'field-error';
+            field.parentElement.appendChild(errorDiv);
+        }
+        errorDiv.textContent = message;
+    }
+    
+    function clearFieldError(field) {
+        field.classList.remove('error');
+        const errorDiv = field.parentElement.querySelector('.field-error');
+        if (errorDiv) {
+            errorDiv.remove();
+        }
+    }
+    
+    function setupFormSubmission() {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                RJACCUtils.showAlert('กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง', 'error');
+                return;
+            }
+            
+            const formData = collectFormData();
+            await submitRegistration(formData);
+        });
+    }
+    
+    function validateForm() {
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+            if (!validateField(field)) {
+                isValid = false;
+            }
+        });
+        
+        const receiptChecked = receiptYes.checked || receiptNo.checked;
+        if (!receiptChecked) {
+            RJACCUtils.showAlert('กรุณาเลือกความต้องการรับใบเสร็จ', 'error');
+            isValid = false;
+        }
+        
+        const workshopChecked = workshopYes.checked || workshopNo.checked;
+        if (!workshopChecked) {
+            RJACCUtils.showAlert('กรุณาเลือกความต้องการเข้าร่วม Workshop', 'error');
+            isValid = false;
+        }
+        
+        return isValid;
+    }
+    
+    function collectFormData() {
+        const formData = {
+            registrationType: 'internal',
+            fullName: RJACCUtils.sanitizeInput(document.getElementById('fullName').value.trim()),
+            department: RJACCUtils.sanitizeInput(document.getElementById('department').value.trim()),
+            position: positionSelect.value === 'other' 
+                ? RJACCUtils.sanitizeInput(otherPositionInput.value.trim())
+                : positionSelect.value,
+            employeeId: RJACCUtils.sanitizeInput(document.getElementById('employeeId').value.trim()),
+            email: document.getElementById('email').value.trim().toLowerCase(),
+            phone: document.getElementById('phone').value.trim(),
+            receipt: {
+                want: receiptYes.checked,
+                name: receiptYes.checked ? RJACCUtils.sanitizeInput(receiptName.value.trim()) : '',
+                address: receiptYes.checked ? RJACCUtils.sanitizeInput(receiptAddress.value.trim()) : '',
+                taxId: receiptYes.checked ? taxId.value.trim() : ''
+            },
+            workshop: {
+                interested: workshopYes.checked,
+                selected: []
+            },
+            specialNeeds: RJACCUtils.sanitizeInput(document.getElementById('specialNeeds').value.trim()),
+            timestamp: new Date().toISOString()
+        };
+        
+        if (workshopYes.checked) {
+            const selectedCheckboxes = workshopCheckboxes.querySelectorAll('input[type="checkbox"]:checked');
+            formData.workshop.selected = Array.from(selectedCheckboxes).map(cb => cb.value);
+        }
+        
+        return formData;
+    }
+    
+    async function submitRegistration(formData) {
+        const submitButton = form.querySelector('.btn-submit');
+        
+        try {
+            RJACCUtils.showLoading(submitButton);
+            
+            const response = await fetch(`${CONFIG.API_BASE_URL}?route=register`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                RJACCUtils.showAlert('ลงทะเบียนสำเร็จ! ระบบได้ส่งอีเมลยืนยันไปที่อีเมลของท่านแล้ว', 'success');
+                
+                form.reset();
+                receiptFields.classList.remove('show');
+                workshopFields.classList.remove('show');
+                otherPositionField.classList.remove('show');
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+            } else {
+                throw new Error(result.message || 'เกิดข้อผิดพลาดในการลงทะเบียน');
+            }
+            
+        } catch (error) {
+            console.error('Registration Error:', error);
+            RJACCUtils.showAlert('เกิดข้อผิดพลาด: ' + error.message, 'error');
+        } finally {
+            RJACCUtils.hideLoading(submitButton);
+        }
+    }
 });
