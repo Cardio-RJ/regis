@@ -36,20 +36,21 @@
     <section class="form-section">
         <div class="container">
             <div class="form-container wide">
-                <h2 class="form-title">ลงทะเบียนประชุมวิชาการ (RJACC2025)<br>สำหรับบุคลากรภายใน</h2>
+                <h2 class="form-title">ลงทะเบียนประชุมวิชาการ (RJACC2025)<br>สำหรับบุคลากรภายใน จากเขตสุขภาพ</h2>
                 
                 <div class="info-box-details">
                     <h3>รายละเอียด (ได้โปรดอ่านรายละเอียดก่อนลงทะเบียน)</h3>
                     <ol>
                         <li>จัดในรูปแบบ Onsite</li>
-                        <li><strong>ไม่มีค่าลงทะเบียน (ฟรี)</strong></li>
-                        <li>เมื่อครบ <strong>250 คน</strong> ระบบจะปิดรับสมัครทันที</li>
-                        <li>มีหน่วย CME สำหรับแพทย์, CNEU สำหรับพยาบาล, เภสัชกร, นักเทคโนโลยีทางการแพทย์, นักโภชนาการ, นักกายภาพบำบัด ตามเกณฑ์ของโครงการฯ</li>
+                        <li>ไม่มีค่าลงทะเบียน (ฟรี)</li>
+                        <li>เมื่อครบ 250 คน ระบบจะปิดรับสมัครทันที</li>
+                        <li>มีหน่วย CME สำหรับแพทย์ ,CNEU สำหรับพยาบาล,เภสัชกร ,นักเทคโนโลยีทางการแพทย์,นักโภชนาการ,นักกายภาพบำบัด ตามเกณฑ์ของโครงการฯ</li>
                         <li>กรณีมีผู้ลงทะเบียนเกินจำนวน โครงการฯ ขอสงวนสิทธิ์สำหรับท่านที่ชำระค่าลงทะเบียนก่อนเท่านั้น**</li>
-                        <li>โรงแรมที่พักท่านสามารถประสานติดต่อด้วยตัวเอง (สามารถดาวน์โหลดแบบฟอร์มที่ปุ่มที่พัก)</li>
+                        <li>โรงแรมที่พักท่านสามารถประสานติดต่อด้วยตัวเอง(สามารถดาวน์โหลดแบบฟอร์มที่ปุ่มที่พัก)</li>
                         <li>ท่านสามารถเบิกค่าใช้จ่าย ที่พัก การเดินทาง จากต้นสังกัดของท่าน</li>
                     </ol>
                     <p class="highlight-note"><strong>หมายเหตุ: คณะทำงาน ไม่ต้องลงทะเบียนเป็นบุคลากรภายใน</strong></p>
+                    <p class="form-note-required">*ระบุว่าเป็นคำถามที่จำเป็น</p>
                 </div>
 
                 <div id="alertContainer"></div>
@@ -61,7 +62,7 @@
                     <!-- 1. Email -->
                     <div class="form-group">
                         <label>E-mail <span class="required">*</span></label>
-                        <input type="email" name="email" required placeholder="example@mail.com">
+                        <input type="email" name="email" id="email" required placeholder="example@mail.com">
                         <span class="error-message" id="email_error"></span>
                     </div>
 
@@ -93,7 +94,7 @@
                     <!-- 4. ชื่อ-นามสกุล -->
                     <div class="form-group">
                         <label>ชื่อ-นามสกุล <span class="required">*</span></label>
-                        <input type="text" name="full_name" required placeholder="ชื่อ-นามสกุล">
+                        <input type="text" name="full_name" id="fullName" required placeholder="ชื่อ-นามสกุล">
                     </div>
 
                     <!-- 5. ตำแหน่ง -->
@@ -129,14 +130,14 @@
                     <!-- 7. อายุ -->
                     <div class="form-group">
                         <label>อายุ <span class="required">*</span></label>
-                        <input type="number" name="age" required min="18" max="100" placeholder="อายุ (ปี)">
+                        <input type="number" name="age" id="age" required placeholder="อายุ (ปี)" min="1" max="120">
                     </div>
 
                     <!-- 8. หน่วยงาน/หอผู้ป่วย -->
                     <div class="form-group">
                         <label>หน่วยงาน/หอผู้ป่วย <span class="required">*</span></label>
-                        <select name="department" required>
-                            <option value="">-- เลือกหน่วยงาน --</option>
+                        <select name="department" required id="department">
+                            <option value="">-- เลือกหน่วยงาน/หอผู้ป่วย --</option>
                             <option value="หน่วยการพยาบาลป้องกันและควบคุมการติดเชื้อ">หน่วยการพยาบาลป้องกันและควบคุมการติดเชื้อ</option>
                             <option value="หน่วยเครื่องใช้กลาง">หน่วยเครื่องใช้กลาง</option>
                             <option value="หน่วยงานวิจัย/นวัตกรรมทางการพยาบาล">หน่วยงานวิจัย/นวัตกรรมทางการพยาบาล</option>
@@ -150,11 +151,11 @@
                         </select>
                     </div>
 
-                    <!-- 9. โรงพยาบาล/สถาบัน -->
+                    <!-- 9. โรงพยาบาล/สถาบัน(สังกัด) -->
                     <div class="form-group">
-                        <label>โรงพยาบาล/สถาบัน (สังกัด) <span class="required">*</span></label>
-                        <select name="hospital" required>
-                            <option value="">-- เลือกโรงพยาบาล --</option>
+                        <label>โรงพยาบาล/สถาบัน(สังกัด) <span class="required">*</span></label>
+                        <select name="hospital" required id="hospital">
+                            <option value="">-- เลือกโรงพยาบาล/สถาบัน --</option>
                             <option value="โรงพยาบาลราชวิถี">โรงพยาบาลราชวิถี</option>
                         </select>
                     </div>
@@ -164,40 +165,117 @@
                         <label>จังหวัด <span class="required">*</span></label>
                         <select name="province" required id="province">
                             <option value="">-- เลือกจังหวัด --</option>
+                            <option value="กระบี่">กระบี่</option>
+                            <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                            <option value="กาญจนบุรี">กาญจนบุรี</option>
+                            <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+                            <option value="กำแพงเพชร">กำแพงเพชร</option>
+                            <option value="ขอนแก่น">ขอนแก่น</option>
+                            <option value="จันทบุรี">จันทบุรี</option>
+                            <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+                            <option value="ชลบุรี">ชลบุรี</option>
+                            <option value="ชัยนาท">ชัยนาท</option>
+                            <option value="ชัยภูมิ">ชัยภูมิ</option>
+                            <option value="ชุมพร">ชุมพร</option>
+                            <option value="เชียงราย">เชียงราย</option>
+                            <option value="เชียงใหม่">เชียงใหม่</option>
+                            <option value="ตรัง">ตรัง</option>
+                            <option value="ตราด">ตราด</option>
+                            <option value="ตาก">ตาก</option>
+                            <option value="นครนายก">นครนายก</option>
+                            <option value="นครปฐม">นครปฐม</option>
+                            <option value="นครพนม">นครพนม</option>
+                            <option value="นครราชสีมา">นครราชสีมา</option>
+                            <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+                            <option value="นครสวรรค์">นครสวรรค์</option>
+                            <option value="นนทบุรี">นนทบุรี</option>
+                            <option value="นราธิวาส">นราธิวาส</option>
+                            <option value="น่าน">น่าน</option>
+                            <option value="บึงกาฬ">บึงกาฬ</option>
+                            <option value="บุรีรัมย์">บุรีรัมย์</option>
+                            <option value="ปทุมธานี">ปทุมธานี</option>
+                            <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+                            <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+                            <option value="ปัตตานี">ปัตตานี</option>
+                            <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+                            <option value="พะเยา">พะเยา</option>
+                            <option value="พังงา">พังงา</option>
+                            <option value="พัทลุง">พัทลุง</option>
+                            <option value="พิจิตร">พิจิตร</option>
+                            <option value="พิษณุโลก">พิษณุโลก</option>
+                            <option value="เพชรบุรี">เพชรบุรี</option>
+                            <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+                            <option value="แพร่">แพร่</option>
+                            <option value="ภูเก็ต">ภูเก็ต</option>
+                            <option value="มหาสารคาม">มหาสารคาม</option>
+                            <option value="มุกดาหาร">มุกดาหาร</option>
+                            <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+                            <option value="ยโสธร">ยโสธร</option>
+                            <option value="ยะลา">ยะลา</option>
+                            <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+                            <option value="ระนอง">ระนอง</option>
+                            <option value="ระยอง">ระยอง</option>
+                            <option value="ราชบุรี">ราชบุรี</option>
+                            <option value="ลพบุรี">ลพบุรี</option>
+                            <option value="ลำปาง">ลำปาง</option>
+                            <option value="ลำพูน">ลำพูน</option>
+                            <option value="เลย">เลย</option>
+                            <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                            <option value="สกลนคร">สกลนคร</option>
+                            <option value="สงขลา">สงขลา</option>
+                            <option value="สตูล">สตูล</option>
+                            <option value="สมุทรปราการ">สมุทรปราการ</option>
+                            <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+                            <option value="สมุทรสาคร">สมุทรสาคร</option>
+                            <option value="สระแก้ว">สระแก้ว</option>
+                            <option value="สระบุรี">สระบุรี</option>
+                            <option value="สิงห์บุรี">สิงห์บุรี</option>
+                            <option value="สุโขทัย">สุโขทัย</option>
+                            <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+                            <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                            <option value="สุรินทร์">สุรินทร์</option>
+                            <option value="หนองคาย">หนองคาย</option>
+                            <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+                            <option value="อ่างทอง">อ่างทอง</option>
+                            <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+                            <option value="อุดรธานี">อุดรธานี</option>
+                            <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+                            <option value="อุทัยธานี">อุทัยธานี</option>
+                            <option value="อุบลราชธานี">อุบลราชธานี</option>
                         </select>
                     </div>
 
                     <!-- 11. เขตสุขภาพ -->
                     <div class="form-group">
                         <label>เขตสุขภาพ <span class="required">*</span></label>
-                        <select name="health_zone" required>
+                        <select name="health_region" required id="healthRegion">
                             <option value="">-- เลือกเขตสุขภาพ --</option>
-                            <option value="เขตสุขภาพที่ 1">เขตสุขภาพที่ 1 เชียงใหม่ เชียงราย แพร่ น่าน พะเยา ลำปาง ลำพูน แม่ฮ่องสอน</option>
-                            <option value="เขตสุขภาพที่ 2">เขตสุขภาพที่ 2 ตาก เพชรบูรณ์ พิษณุโลก อุตรดิตถ์ สุโขทัย</option>
-                            <option value="เขตสุขภาพที่ 3">เขตสุขภาพที่ 3 กำแพงเพชร พิจิตร นครสวรรค์ ชัยนาท อุทัยธานี</option>
-                            <option value="เขตสุขภาพที่ 4">เขตสุขภาพที่ 4 สระบุรี นนทบุรี ลพบุรี อ่างทอง นครนายก สิงห์บุรี อยุธยา ปทุมธานี</option>
-                            <option value="เขตสุขภาพที่ 5">เขตสุขภาพที่ 5 เพชรบุรี สมุทรสาคร สมุทรสงคราม ประจวบคีรีขันธ์ สุพรรณบุรี นครปฐม ราชบุรี กาญจนบุรี</option>
-                            <option value="เขตสุขภาพที่ 6">เขตสุขภาพที่ 6 สระแก้ว ปราจีนบุรี ฉะเชิงเทรา สมุทรปราการ ชลบุรี จันทบุรี ระยอง ตราด</option>
-                            <option value="เขตสุขภาพที่ 7">เขตสุขภาพที่ 7 กาฬสินธุ์ ขอนแก่น มหาสารคาม ร้อยเอ็ด</option>
-                            <option value="เขตสุขภาพที่ 8">เขตสุขภาพที่ 8 อุดรธานี สกลนคร นครพนม เลย หนองคาย หนองบัวลำภู บึงกาฬ</option>
-                            <option value="เขตสุขภาพที่ 9">เขตสุขภาพที่ 9 ชัยภูมิ นครราชสีมา บุรีรัมย์ สุรินทร์</option>
-                            <option value="เขตสุขภาพที่ 10">เขตสุขภาพที่ 10 อุบลราชธานี ศรีสะเกษ มุกดาหาร อำนาจเจริญ</option>
-                            <option value="เขตสุขภาพที่ 11">เขตสุขภาพที่ 11 นครศรีธรรมราช สุราษฎร์ธานี ภูเก็ต กระบี่ พังงา ระนอง ชุมพร</option>
-                            <option value="เขตสุขภาพที่ 12">เขตสุขภาพที่ 12 สงขลา สตูล ตรัง พัทลุง ปัตตานี ยะลา นราธิวาส</option>
-                            <option value="เขตสุขภาพที่ 13">เขตสุขภาพที่ 13 กรุงเทพมหานคร</option>
+                            <option value="เขตสุขภาพที่ 1 เชียงใหม่ เชียงราย แพร่ น่าน พะเยา ลำปาง ลำพูน แม่ฮ่องสอน">เขตสุขภาพที่ 1 เชียงใหม่ เชียงราย แพร่ น่าน พะเยา ลำปาง ลำพูน แม่ฮ่องสอน</option>
+                            <option value="เขตสุขภาพที่ 2 ตาก เพชรบูรณ์ พิษณุโลก อุตรดิตถ์ สุโขทัย">เขตสุขภาพที่ 2 ตาก เพชรบูรณ์ พิษณุโลก อุตรดิตถ์ สุโขทัย</option>
+                            <option value="เขตสุขภาพที่ 3 กำแพงเพชร พิจิตร นครสวรรค์ ชัยนาท อุทัยธานี">เขตสุขภาพที่ 3 กำแพงเพชร พิจิตร นครสวรรค์ ชัยนาท อุทัยธานี</option>
+                            <option value="เขตสุขภาพที่ 4 สระบุรี นนทบุรี ลพบุรี อ่างทอง นครนายก สิงห์บุรี อยุธยา ปทุมธานี">เขตสุขภาพที่ 4 สระบุรี นนทบุรี ลพบุรี อ่างทอง นครนายก สิงห์บุรี อยุธยา ปทุมธานี</option>
+                            <option value="เขตสุขภาพที่ 5 เพชรบุรี สมุทรสาคร สมุทรสงคราม ประจวบคีรีขันธ์ สุพรรณบุรี นครปฐม ราชบุรี กาญจนบุรี">เขตสุขภาพที่ 5 เพชรบุรี สมุทรสาคร สมุทรสงคราม ประจวบคีรีขันธ์ สุพรรณบุรี นครปฐม ราชบุรี กาญจนบุรี</option>
+                            <option value="เขตสุขภาพที่ 6 สระแก้ว ปราจีนบุรี ฉะเชิงเทรา สมุทรปราการ ชลบุรี จันทบุรี ระยอง ตราด">เขตสุขภาพที่ 6 สระแก้ว ปราจีนบุรี ฉะเชิงเทรา สมุทรปราการ ชลบุรี จันทบุรี ระยอง ตราด</option>
+                            <option value="เขตสุขภาพที่ 7 กาฬสินธุ์ ขอนแก่น มหาสารคาม ร้อยเอ็ด">เขตสุขภาพที่ 7 กาฬสินธุ์ ขอนแก่น มหาสารคาม ร้อยเอ็ด</option>
+                            <option value="เขตสุขภาพที่ 8 อุดรธานี สกลนคร นครพนม เลย หนองคาย หนองบัวลำภู บึงกาฬ">เขตสุขภาพที่ 8 อุดรธานี สกลนคร นครพนม เลย หนองคาย หนองบัวลำภู บึงกาฬ</option>
+                            <option value="เขตสุขภาพที่ 9 ชัยภูมิ นครราชสีมา บุรีรัมย์ สุรินทร์">เขตสุขภาพที่ 9 ชัยภูมิ นครราชสีมา บุรีรัมย์ สุรินทร์</option>
+                            <option value="เขตสุขภาพที่ 10 อุบลราชธานี ศรีสะเกษ มุกดาหาร อำนาจเจริญ">เขตสุขภาพที่ 10 อุบลราชธานี ศรีสะเกษ มุกดาหาร อำนาจเจริญ</option>
+                            <option value="เขตสุขภาพที่ 11 นครศรีธรรมราช สุราษฎร์ธานี ภูเก็ต กระบี่ พังงา ระนอง ชุมพร">เขตสุขภาพที่ 11 นครศรีธรรมราช สุราษฎร์ธานี ภูเก็ต กระบี่ พังงา ระนอง ชุมพร</option>
+                            <option value="เขตสุขภาพที่ 12 สงขลา สตูล ตรัง พัทลุง ปัตตานี ยะลา นราธิวาส">เขตสุขภาพที่ 12 สงขลา สตูล ตรัง พัทลุง ปัตตานี ยะลา นราธิวาส</option>
+                            <option value="เขตสุขภาพที่ 13 กรุงเทพมหานคร">เขตสุขภาพที่ 13 กรุงเทพมหานคร</option>
                         </select>
                     </div>
 
                     <!-- 12. เบอร์โทรศัพท์ -->
                     <div class="form-group">
                         <label>เบอร์โทรศัพท์ <span class="required">*</span></label>
-                        <input type="tel" name="phone" required placeholder="0XX-XXX-XXXX">
+                        <input type="tel" name="phone" id="phone" required placeholder="เบอร์โทรศัพท์ 10 หลัก">
                     </div>
 
                     <!-- 13. ประเภทอาหาร -->
                     <div class="form-group">
                         <label>ประเภทอาหาร <span class="required">*</span></label>
-                        <select name="food_type" required id="food_type">
+                        <select name="food_type" required id="foodType">
                             <option value="">-- เลือกประเภทอาหาร --</option>
                             <option value="ทั่วไป">ทั่วไป</option>
                             <option value="ฮาลาล">ฮาลาล</option>
@@ -289,7 +367,7 @@
 
                     <!-- 15. รับทราบเงื่อนไข -->
                     <div class="form-group">
-                        <label class="terms-label">ท่านรับทราบและยอมรับเงื่อนไข (ตามรายละเอียดชี้แจง 1) เรียบร้อยแล้ว <span class="required">*</span></label>
+                        <label class="terms-label"><strong>ท่านรับทราบ และยอมรับเงื่อนไข (ตามรายละเอียดชี้แจง 1)</strong> เรียบร้อยแล้ว <span class="required">*</span></label>
                         <label class="checkbox-label">
                             <input type="checkbox" name="accept_terms" required>
                             <span>รับทราบ</span>
@@ -299,12 +377,11 @@
                     <!-- Submit Button -->
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
-                            <span class="btn-text">ลงทะเบียน</span>
+                            <span class="btn-text"><i class="fas fa-paper-plane"></i> ส่งแบบฟอร์ม</span>
                             <span class="btn-loading" style="display: none;">
                                 <span class="spinner"></span> กำลังบันทึก...
                             </span>
                         </button>
-                        <button type="reset" class="btn btn-outline btn-large">ล้างข้อมูล</button>
                     </div>
                 </form>
             </div>
@@ -317,7 +394,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p class="footer-contact">ติดต่อสอบถามเพิ่มเติมได้ที่</p>
+            <p class="footer-contact"><strong>ติดต่อสอบถามเพิ่มเติมได้ที่</strong></p>
             <p>&copy; 2025 RJACC2025 - โรงพยาบาลราชวิถี</p>
         </div>
     </footer>
@@ -325,6 +402,6 @@
     <script src="assets/js/rjacc-config.js"></script>
     <script src="assets/js/rjacc-provinces.js"></script>
     <script src="assets/js/rjacc-workshops.js"></script>
-    <script src="assets/js/rjacc-form-internal.js"></script>
+    <script src="assets/js/registration-internal.js"></script>
 </body>
 </html>
