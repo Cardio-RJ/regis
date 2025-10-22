@@ -147,12 +147,12 @@ const CONFIG = {
     HOTELS: [
         {
             id: 1,
-            name: 'โรงแรม Asia Hotel',
+            name: 'Asia Hotel',
             link: 'https://drive.google.com/file/d/1epTKlThKBGyElXG4F5agN_MgaPUPjYaS/view?usp=sharing'
         },
         {
             id: 2,
-            name: 'โรงแรม Centurypark Hotel',
+            name: 'Centurypark Hotel',
             link: 'https://drive.google.com/file/d/12lNzwkf_zC282WfbV2JeNfbkedDafV56/view?usp=sharing'
         },
         {
