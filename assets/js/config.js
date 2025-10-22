@@ -5,7 +5,7 @@
 
 const CONFIG = {
     // Google Apps Script API URL
-    API_BASE_URL: 'YOUR_APPS_SCRIPT_URL_HERE',
+    API_BASE_URL: 'https://script.google.com/macros/s/AKfycby8sCFIMGdeAUQUjo1ThgSpP-039trhQxgWKh6detFWQapOrT7VRUCnSn7IT2jvE5kx/exec',
     
     // ข้อมูลการประชุม
     EVENT_INFO: {
