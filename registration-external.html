@@ -345,8 +345,7 @@
                     <!-- 15. Workshop -->
                     <div class="form-group">
                         <label class="required">
-                            <strong>สอบถามความต้องการเข้าร่วม Workshop</strong><br>
-                            (เพื่อตรวจสอบจำนวนผู้เข้าร่วม)
+                            <strong>สอบถามความต้องการเข้าร่วม Workshop (เพื่อตรวจสอบจำนวนผู้เข้าร่วม)</strong>
                         </label>
                         <div class="radio-group">
                             <div class="radio-option">
@@ -363,13 +362,65 @@
                     <!-- Workshop Selection -->
                     <div class="conditional-fields" id="workshopFields">
                         <h4><i class="fas fa-calendar-check"></i> เลือก Workshop ที่ต้องการเข้าร่วม</h4>
-                        <div class="form-note">*สามารถเลือกได้มากกว่า 1 หัวข้อ*</div>
+                        <div class="form-note">*เลือกได้มากกว่า 1 ช่อง*</div>
                         
-                        <div class="checkbox-group" id="workshopCheckboxes">
-                            <!-- จะถูกสร้างโดย JavaScript -->
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop1" name="workshops" value="วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: MIS CVT ห้องประชุมโยธี">
+                                <label for="workshop1">วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: MIS CVT ห้องประชุมโยธี</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop2" name="workshops" value="วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Cath Lab ห้องประชุมราชพฤกษ์">
+                                <label for="workshop2">วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: Cath Lab ห้องประชุมราชพฤกษ์</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop3" name="workshops" value="วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Crisis management ห้องประชุมสุพรรณิการ์">
+                                <label for="workshop3">วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: Crisis management ห้องประชุมสุพรรณิการ์</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop4" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: Workshop CVT ห้องประชุมโยธี">
+                                <label for="workshop4">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: Workshop CVT ห้องประชุมโยธี</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop5" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Workshop CVT ห้องประชุมโยธี">
+                                <label for="workshop5">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: Workshop CVT ห้องประชุมโยธี</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop6" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-16.00 Topic: ………. ห้องประชุมราชพฤกษ์">
+                                <label for="workshop6">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-16.00<br>Topic: ………. ห้องประชุมราชพฤกษ์</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop7" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: กายภาพบำบัด ห้องประชุมราชพฤกษ์">
+                                <label for="workshop7">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: กายภาพบำบัด ห้องประชุมราชพฤกษ์</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop8" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: เภสัชกร ห้องประชุมสุพรรณิการ์">
+                                <label for="workshop8">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: เภสัชกร ห้องประชุมสุพรรณิการ์</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop9" name="workshops" value="วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: โภชนาการ ห้องประชุมโยธี">
+                                <label for="workshop9">วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: โภชนาการ ห้องประชุมโยธี</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop10" name="workshops" value="วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: นำเสนอผลงานวิชาการทางการพยาบาล/Innovation+CQI ทางการพยาบาล ห้องประชุมราชพฤกษ์">
+                                <label for="workshop10">วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: นำเสนอผลงานวิชาการทางการพยาบาล/Innovation+CQI ทางการพยาบาล ห้องประชุมราชพฤกษ์</label>
+                            </div>
+                            
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="workshop11" name="workshops" value="วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: การจัดการเครื่องมือแพทย์ ห้องประชุมสุพรรณิการ์">
+                                <label for="workshop11">วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: การจัดการเครื่องมือแพทย์ ห้องประชุมสุพรรณิการ์</label>
+                            </div>
                         </div>
                     </div>
-
                     <!-- 16. ยอมรับเงื่อนไข -->
                     <div class="form-group">
                         <label class="required">
