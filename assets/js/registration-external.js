@@ -1,7 +1,3 @@
- 
-Registration external · JS
-Download
-
 /**
  * RJACC2025 - External Registration Form Handler
  * จัดการฟอร์มลงทะเบียนบุคลากรภายนอก
