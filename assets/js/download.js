@@ -218,7 +218,7 @@ function renderHotelList() {
             </div>
             <h4>${hotel.name}</h4>
             <a href="${hotel.link}" class="btn-hotel" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-external-link-alt"></i> ดูรายละเอียดและจอง
+                <i class="fas fa-external-link-alt"></i> แบบฟอร์มจองโรงแรม
             </a>
         </div>
     `).join('');
