@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ลงทะเบียนคณะทำงาน - RJACC2025</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/rjacc-styles.css">
+    <link rel="stylesheet" href="modern-button-styles.css">
 </head>
 <body>
     <nav class="navbar">
@@ -127,127 +129,165 @@
                         <small class="form-hint">โปรดตรวจสอบข้อมูลของท่านให้ครบถ้วน หากไม่มีโปรดใส่ "ไม่มี"</small>
                     </div>
 
-                    <!-- 7. สถานพยาบาล -->
+                    <!-- 7. อายุ -->
                     <div class="form-group">
-                        <label>สถานพยาบาล <span class="required">*</span></label>
-                        <input type="text" name="hospital" id="hospital" required placeholder="ชื่อสถานพยาบาล">
+                        <label>อายุ <span class="required">*</span></label>
+                        <input type="number" name="age" id="age" required placeholder="อายุ (ปี)" min="1" max="120">
                     </div>
 
-                    <!-- 8. จังหวัด -->
+                    <!-- 8. หน่วยงาน/หอผู้ป่วย -->
+                    <div class="form-group">
+                        <label>หน่วยงาน/หอผู้ป่วย <span class="required">*</span></label>
+                        <select name="department" required id="department">
+                            <option value="">-- เลือกหน่วยงาน/หอผู้ป่วย --</option>
+                            <option value="หน่วยการพยาบาลป้องกันและควบคุมการติดเชื้อ">หน่วยการพยาบาลป้องกันและควบคุมการติดเชื้อ</option>
+                            <option value="หน่วยเครื่องใช้กลาง">หน่วยเครื่องใช้กลาง</option>
+                            <option value="หน่วยงานวิจัย/นวัตกรรมทางการพยาบาล">หน่วยงานวิจัย/นวัตกรรมทางการพยาบาล</option>
+                            <option value="หน่วยยุทธศาสตร์แผนงานและโครงการ">หน่วยยุทธศาสตร์แผนงานและโครงการ</option>
+                            <option value="หน่วยพัฒนาทรัพยากรมนุษย์ด้านพยาบาล (HRD)">หน่วยพัฒนาทรัพยากรมนุษย์ด้านพยาบาล (HRD)</option>
+                            <option value="หน่วยบริหารทรัพยากรมนุษย์ด้านพยาบาล (HRM)">หน่วยบริหารทรัพยากรมนุษย์ด้านพยาบาล (HRM)</option>
+                            <option value="หน่วยสารสนเทศและจัดการความรู้ทางการพยาบาล">หน่วยสารสนเทศและจัดการความรู้ทางการพยาบาล</option>
+                            <option value="หน่วยการดูแลแบบประคับประคอง">หน่วยการดูแลแบบประคับประคอง</option>
+                            <option value="หน่วยออสโตมีคลินิก">หน่วยออสโตมีคลินิก</option>
+                            <option value="หน่วยโภชนบำบัดทางการพยาบาล">หน่วยโภชนบำบัดทางการพยาบาล</option>
+                        </select>
+                    </div>
+
+                    <!-- 9. โรงพยาบาล/สถาบัน(สังกัด) -->
+                    <div class="form-group">
+                        <label>โรงพยาบาล/สถาบัน(สังกัด) <span class="required">*</span></label>
+                        <select name="hospital" required id="hospital">
+                            <option value="">-- เลือกโรงพยาบาล/สถาบัน --</option>
+                            <option value="โรงพยาบาลราชวิถี">โรงพยาบาลราชวิถี</option>
+                        </select>
+                    </div>
+
+                    <!-- 10. จังหวัด -->
                     <div class="form-group">
                         <label>จังหวัด <span class="required">*</span></label>
                         <select name="province" required id="province">
                             <option value="">-- เลือกจังหวัด --</option>
+                            <option value="กระบี่">กระบี่</option>
+                            <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                            <option value="กาญจนบุรี">กาญจนบุรี</option>
+                            <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+                            <option value="กำแพงเพชร">กำแพงเพชร</option>
+                            <option value="ขอนแก่น">ขอนแก่น</option>
+                            <option value="จันทบุรี">จันทบุรี</option>
+                            <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+                            <option value="ชลบุรี">ชลบุรี</option>
+                            <option value="ชัยนาท">ชัยนาท</option>
+                            <option value="ชัยภูมิ">ชัยภูมิ</option>
+                            <option value="ชุมพร">ชุมพร</option>
+                            <option value="เชียงราย">เชียงราย</option>
+                            <option value="เชียงใหม่">เชียงใหม่</option>
+                            <option value="ตรัง">ตรัง</option>
+                            <option value="ตราด">ตราด</option>
+                            <option value="ตาก">ตาก</option>
+                            <option value="นครนายก">นครนายก</option>
+                            <option value="นครปฐม">นครปฐม</option>
+                            <option value="นครพนม">นครพนม</option>
+                            <option value="นครราชสีมา">นครราชสีมา</option>
+                            <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+                            <option value="นครสวรรค์">นครสวรรค์</option>
+                            <option value="นนทบุรี">นนทบุรี</option>
+                            <option value="นราธิวาส">นราธิวาส</option>
+                            <option value="น่าน">น่าน</option>
+                            <option value="บึงกาฬ">บึงกาฬ</option>
+                            <option value="บุรีรัมย์">บุรีรัมย์</option>
+                            <option value="ปทุมธานี">ปทุมธานี</option>
+                            <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+                            <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+                            <option value="ปัตตานี">ปัตตานี</option>
+                            <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+                            <option value="พะเยา">พะเยา</option>
+                            <option value="พังงา">พังงา</option>
+                            <option value="พัทลุง">พัทลุง</option>
+                            <option value="พิจิตร">พิจิตร</option>
+                            <option value="พิษณุโลก">พิษณุโลก</option>
+                            <option value="เพชรบุรี">เพชรบุรี</option>
+                            <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+                            <option value="แพร่">แพร่</option>
+                            <option value="ภูเก็ต">ภูเก็ต</option>
+                            <option value="มหาสารคาม">มหาสารคาม</option>
+                            <option value="มุกดาหาร">มุกดาหาร</option>
+                            <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+                            <option value="ยโสธร">ยโสธร</option>
+                            <option value="ยะลา">ยะลา</option>
+                            <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+                            <option value="ระนอง">ระนอง</option>
+                            <option value="ระยอง">ระยอง</option>
+                            <option value="ราชบุรี">ราชบุรี</option>
+                            <option value="ลพบุรี">ลพบุรี</option>
+                            <option value="ลำปาง">ลำปาง</option>
+                            <option value="ลำพูน">ลำพูน</option>
+                            <option value="เลย">เลย</option>
+                            <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                            <option value="สกลนคร">สกลนคร</option>
+                            <option value="สงขลา">สงขลา</option>
+                            <option value="สตูล">สตูล</option>
+                            <option value="สมุทรปราการ">สมุทรปราการ</option>
+                            <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+                            <option value="สมุทรสาคร">สมุทรสาคร</option>
+                            <option value="สระแก้ว">สระแก้ว</option>
+                            <option value="สระบุรี">สระบุรี</option>
+                            <option value="สิงห์บุรี">สิงห์บุรี</option>
+                            <option value="สุโขทัย">สุโขทัย</option>
+                            <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+                            <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                            <option value="สุรินทร์">สุรินทร์</option>
+                            <option value="หนองคาย">หนองคาย</option>
+                            <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+                            <option value="อ่างทอง">อ่างทอง</option>
+                            <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+                            <option value="อุดรธานี">อุดรธานี</option>
+                            <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+                            <option value="อุทัยธานี">อุทัยธานี</option>
+                            <option value="อุบลราชธานี">อุบลราชธานี</option>
                         </select>
                     </div>
 
-                    <!-- 9. เบอร์โทรศัพท์ -->
+                    <!-- 11. เขตสุขภาพ -->
+                    <div class="form-group">
+                        <label>เขตสุขภาพ <span class="required">*</span></label>
+                        <select name="health_region" required id="healthRegion">
+                            <option value="">-- เลือกเขตสุขภาพ --</option>
+                            <option value="เขตสุขภาพที่ 1 เชียงใหม่ เชียงราย แพร่ น่าน พะเยา ลำปาง ลำพูน แม่ฮ่องสอน">เขตสุขภาพที่ 1 เชียงใหม่ เชียงราย แพร่ น่าน พะเยา ลำปาง ลำพูน แม่ฮ่องสอน</option>
+                            <option value="เขตสุขภาพที่ 2 ตาก เพชรบูรณ์ พิษณุโลก อุตรดิตถ์ สุโขทัย">เขตสุขภาพที่ 2 ตาก เพชรบูรณ์ พิษณุโลก อุตรดิตถ์ สุโขทัย</option>
+                            <option value="เขตสุขภาพที่ 3 กำแพงเพชร พิจิตร นครสวรรค์ ชัยนาท อุทัยธานี">เขตสุขภาพที่ 3 กำแพงเพชร พิจิตร นครสวรรค์ ชัยนาท อุทัยธานี</option>
+                            <option value="เขตสุขภาพที่ 4 สระบุรี นนทบุรี ลพบุรี อ่างทอง นครนายก สิงห์บุรี อยุธยา ปทุมธานี">เขตสุขภาพที่ 4 สระบุรี นนทบุรี ลพบุรี อ่างทอง นครนายก สิงห์บุรี อยุธยา ปทุมธานี</option>
+                            <option value="เขตสุขภาพที่ 5 เพชรบุรี สมุทรสาคร สมุทรสงคราม ประจวบคีรีขันธ์ สุพรรณบุรี นครปฐม ราชบุรี กาญจนบุรี">เขตสุขภาพที่ 5 เพชรบุรี สมุทรสาคร สมุทรสงคราม ประจวบคีรีขันธ์ สุพรรณบุรี นครปฐม ราชบุรี กาญจนบุรี</option>
+                            <option value="เขตสุขภาพที่ 6 สระแก้ว ปราจีนบุรี ฉะเชิงเทรา สมุทรปราการ ชลบุรี จันทบุรี ระยอง ตราด">เขตสุขภาพที่ 6 สระแก้ว ปราจีนบุรี ฉะเชิงเทรา สมุทรปราการ ชลบุรี จันทบุรี ระยอง ตราด</option>
+                            <option value="เขตสุขภาพที่ 7 กาฬสินธุ์ ขอนแก่น มหาสารคาม ร้อยเอ็ด">เขตสุขภาพที่ 7 กาฬสินธุ์ ขอนแก่น มหาสารคาม ร้อยเอ็ด</option>
+                            <option value="เขตสุขภาพที่ 8 อุดรธานี สกลนคร นครพนม เลย หนองคาย หนองบัวลำภู บึงกาฬ">เขตสุขภาพที่ 8 อุดรธานี สกลนคร นครพนม เลย หนองคาย หนองบัวลำภู บึงกาฬ</option>
+                            <option value="เขตสุขภาพที่ 9 ชัยภูมิ นครราชสีมา บุรีรัมย์ สุรินทร์">เขตสุขภาพที่ 9 ชัยภูมิ นครราชสีมา บุรีรัมย์ สุรินทร์</option>
+                            <option value="เขตสุขภาพที่ 10 อุบลราชธานี ศรีสะเกษ มุกดาหาร อำนาจเจริญ">เขตสุขภาพที่ 10 อุบลราชธานี ศรีสะเกษ มุกดาหาร อำนาจเจริญ</option>
+                            <option value="เขตสุขภาพที่ 11 นครศรีธรรมราช สุราษฎร์ธานี ภูเก็ต กระบี่ พังงา ระนอง ชุมพร">เขตสุขภาพที่ 11 นครศรีธรรมราช สุราษฎร์ธานี ภูเก็ต กระบี่ พังงา ระนอง ชุมพร</option>
+                            <option value="เขตสุขภาพที่ 12 สงขลา สตูล ตรัง พัทลุง ปัตตานี ยะลา นราธิวาส">เขตสุขภาพที่ 12 สงขลา สตูล ตรัง พัทลุง ปัตตานี ยะลา นราธิวาส</option>
+                            <option value="เขตสุขภาพที่ 13 กรุงเทพมหานคร">เขตสุขภาพที่ 13 กรุงเทพมหานคร</option>
+                        </select>
+                    </div>
+
+                    <!-- 12. เบอร์โทรศัพท์ -->
                     <div class="form-group">
                         <label>เบอร์โทรศัพท์ <span class="required">*</span></label>
                         <input type="tel" name="phone" id="phone" required placeholder="เบอร์โทรศัพท์ 10 หลัก">
                     </div>
 
-                    <!-- 10. ประเภทอาหาร -->
+                    <!-- 13. ประเภทอาหาร -->
                     <div class="form-group">
                         <label>ประเภทอาหาร <span class="required">*</span></label>
                         <select name="food_type" required id="foodType">
                             <option value="">-- เลือกประเภทอาหาร --</option>
-                            <option value="ทานได้ทุกอย่าง">ทานได้ทุกอย่าง</option>
-                            <option value="มังสวิรัติ">มังสวิรัติ</option>
-                            <option value="เจ">เจ</option>
+                            <option value="ทั่วไป">ทั่วไป</option>
                             <option value="ฮาลาล">ฮาลาล</option>
+                            <option value="มังสวิรัติ">มังสวิรัติ</option>
                             <option value="อื่นๆ">อื่นๆ (กรอกเพิ่มเติม)</option>
                         </select>
                         <input type="text" name="food_other" id="food_other" placeholder="โปรดระบุ" style="display:none; margin-top: 8px;">
                     </div>
 
-                    <!-- 11. ความต้องการพิเศษ -->
-                    <div class="form-group">
-                        <label>ความต้องการพิเศษ</label>
-                        <textarea name="special_needs" id="specialNeeds" rows="3" placeholder="โปรดระบุความต้องการพิเศษ (ถ้ามี)"></textarea>
-                    </div>
-
-                    <!-- 12. Workshop (รูปแบบแตกต่างเล็กน้อย) -->
-                    <div class="form-group">
-                        <label class="required">
-                            <strong>สอบถามความต้องการเข้าร่วม Workshop (เพื่อตรวจสอบจำนวนผู้เข้าร่วม)</strong>
-                        </label>
-                        <div class="radio-group">
-                            <div class="radio-option">
-                                <input type="radio" id="workshopYes" name="workshopInterest" value="yes" required>
-                                <label for="workshopYes">ต้องการเข้าร่วม</label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" id="workshopNo" name="workshopInterest" value="no">
-                                <label for="workshopNo">ไม่ต้องการเข้าร่วม</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Workshop Selection -->
-                    <div class="conditional-fields" id="workshopFields">
-                        <h4><i class="fas fa-calendar-check"></i> เลือก Workshop ที่ต้องการเข้าร่วม</h4>
-                        <div class="form-note">*เลือกได้มากกว่า 1 ช่อง*</div>
-                        
-                        <div class="checkbox-group">
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop1" name="workshops" value="วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: MIS CVT ห้องประชุมโยธี">
-                                <label for="workshop1">วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: MIS CVT ห้องประชุมโยธี</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop2" name="workshops" value="วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Cath Lab ห้องประชุมราชพฤกษ์">
-                                <label for="workshop2">วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: Cath Lab ห้องประชุมราชพฤกษ์</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop3" name="workshops" value="วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Crisis management ห้องประชุมสุพรรณิการ์">
-                                <label for="workshop3">วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: Crisis management ห้องประชุมสุพรรณิการ์</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop4" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: Workshop CVT ห้องประชุมโยธี">
-                                <label for="workshop4">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: Workshop CVT ห้องประชุมโยธี</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop5" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Workshop CVT ห้องประชุมโยธี">
-                                <label for="workshop5">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: Workshop CVT ห้องประชุมโยธี</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop6" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-16.00 Topic: ………. ห้องประชุมราชพฤกษ์">
-                                <label for="workshop6">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-16.00<br>Topic: ………. ห้องประชุมราชพฤกษ์</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop7" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: กายภาพบำบัด ห้องประชุมราชพฤกษ์">
-                                <label for="workshop7">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00<br>Topic: กายภาพบำบัด ห้องประชุมราชพฤกษ์</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop8" name="workshops" value="วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: เภสัชกร ห้องประชุมสุพรรณิการ์">
-                                <label for="workshop8">วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: เภสัชกร ห้องประชุมสุพรรณิการ์</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop9" name="workshops" value="วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: โภชนาการ ห้องประชุมโยธี">
-                                <label for="workshop9">วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: โภชนาการ ห้องประชุมโยธี</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop10" name="workshops" value="วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: นำเสนอผลงานวิชาการทางการพยาบาล/Innovation+CQI ทางการพยาบาล ห้องประชุมราชพฤกษ์">
-                                <label for="workshop10">วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: นำเสนอผลงานวิชาการทางการพยาบาล/Innovation+CQI ทางการพยาบาล ห้องประชุมราชพฤกษ์</label>
-                            </div>
-                            
-                            <div class="checkbox-option">
-                                <input type="checkbox" id="workshop11" name="workshops" value="วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: การจัดการเครื่องมือแพทย์ ห้องประชุมสุพรรณิการ์">
-                                <label for="workshop11">วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00<br>Topic: การจัดการเครื่องมือแพทย์ ห้องประชุมสุพรรณิการ์</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 13. รับทราบเงื่อนไข -->
+                    <!-- 14. รับทราบเงื่อนไข -->
                     <div class="form-group">
                         <label class="terms-label">ท่านรับทราบและยอมรับเงื่อนไข (ตามรายละเอียดชี้แจง 1) เรียบร้อยแล้ว <span class="required">*</span></label>
                         <label class="checkbox-label">
@@ -258,10 +298,14 @@
 
                     <!-- Submit Button -->
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
-                            <span class="btn-text"><i class="fas fa-paper-plane"></i> ส่งแบบฟอร์ม</span>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span class="btn-text">
+                                <i class="fas fa-paper-plane"></i>
+                                ส่งแบบฟอร์ม
+                            </span>
                             <span class="btn-loading" style="display: none;">
-                                <span class="spinner"></span> กำลังบันทึก...
+                                <span class="spinner"></span>
+                                กำลังบันทึก...
                             </span>
                         </button>
                     </div>
