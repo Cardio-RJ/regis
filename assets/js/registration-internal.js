@@ -1,5 +1,18 @@
+// ===========================
+// QUOTA SYSTEM INITIALIZATION
+// ===========================
+let quotaManager = null;
+
 // ฟังก์ชันสำหรับแสดง/ซ่อนฟิลด์ตามเงื่อนไข
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // เริ่มต้น Quota Manager สำหรับบุคลากรภายใน
+    quotaManager = initializeQuotaSystem('internal');
+    
+    if (!quotaManager) {
+        console.warn('Registration is full or quota manager failed to initialize');
+        return;
+    }
     
     // ========== 1. จัดการสังกัดอื่นๆ ==========
     const affiliationSelect = document.getElementById('affiliation');
@@ -52,12 +65,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== 4. Validation ฟอร์ม ==========
+    // ========== 4. Validation ฟอร์ม + Quota Check ==========
     const form = document.getElementById('registrationForm');
     
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            
+            // ===========================
+            // QUOTA VALIDATION
+            // ===========================
+            if (!handleFormSubmitWithQuota(e, quotaManager, 'internal')) {
+                return;
+            }
             
             // ตรวจสอบเบอร์โทรศัพท์
             const phoneInput = document.getElementById('phone');
@@ -72,6 +92,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // ถ้าผ่านทุกการตรวจสอบ
             if (confirm('คุณต้องการส่งแบบฟอร์มนี้หรือไม่?')) {
+                // แสดง loading state
+                const submitBtn = document.getElementById('submitBtn');
+                if (submitBtn) {
+                    submitBtn.classList.add('loading');
+                    submitBtn.disabled = true;
+                }
+                
                 // รวบรวมข้อมูล
                 const formData = new FormData(form);
                 
@@ -82,7 +109,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // ส่งข้อมูลไปยังเซิร์ฟเวอร์ (ปรับแต่ง URL ตามจริง)
-                alert('แบบฟอร์มถูกส่งเรียบร้อยแล้ว!\n(ในการใช้งานจริง ข้อมูลจะถูกส่งไปยังเซิร์ฟเวอร์)');
+                setTimeout(() => {
+                    alert('แบบฟอร์มถูกส่งเรียบร้อยแล้ว!\n(ในการใช้งานจริง ข้อมูลจะถูกส่งไปยังเซิร์ฟเวอร์)');
+                    form.reset();
+                    
+                    if (submitBtn) {
+                        submitBtn.classList.remove('loading');
+                        submitBtn.disabled = false;
+                    }
+                }, 1000);
                 
                 // สามารถใช้ fetch API เพื่อส่งข้อมูล
                 /*
