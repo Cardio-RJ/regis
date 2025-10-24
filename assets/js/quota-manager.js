@@ -276,6 +276,11 @@ function updateWorkshopUI(quotaManager) {
             existingWarning.remove();
         }
 
+        const existingRemaining = label.querySelector('.workshop-remaining');
+        if (existingRemaining) {
+            existingRemaining.remove();
+        }
+
         // ถ้าเต็มแล้ว
         if (!workshop.available) {
             // Disable checkbox
@@ -450,9 +455,9 @@ function handleFormSubmitWithQuota(event, quotaManager, registrationType) {
 
     // สำหรับฟอร์ม external ให้ตรวจสอบ workshop ด้วย
     if (registrationType === 'external') {
-        const workshopYes = document.querySelector('input[name="workshopInterest"]:checked');
+        const workshopYes = document.getElementById('workshopYes');
         
-        if (workshopYes && workshopYes.value === 'yes') {
+        if (workshopYes && workshopYes.checked) {
             const selectedWorkshops = Array.from(
                 document.querySelectorAll('input[name="workshops"]:checked')
             ).map(cb => cb.id);
@@ -534,6 +539,7 @@ function viewAllQuotaStatus(adminPassword) {
 window.QuotaManager = QuotaManager;
 window.initializeQuotaSystem = initializeQuotaSystem;
 window.handleFormSubmitWithQuota = handleFormSubmitWithQuota;
+window.updateWorkshopUI = updateWorkshopUI;
 window.resetAllQuotas = resetAllQuotas;
 window.viewAllQuotaStatus = viewAllQuotaStatus;
 window.WORKSHOP_SESSIONS = WORKSHOP_SESSIONS;
