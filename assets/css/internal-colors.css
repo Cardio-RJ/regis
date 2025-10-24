@@ -1,0 +1,150 @@
+/**
+ * INTERNAL COLORS - สีชมพู
+ * สำหรับบุคลากรภายใน
+ */
+
+/* ===================================
+   PRIMARY COLORS - PINK
+   =================================== */
+
+:root {
+    --primary-color: #E91E63;
+    --primary-light: #F06292;
+    --primary-dark: #C2185B;
+    --primary-rgb: 233, 30, 99;
+}
+
+/* ===================================
+   HEADER & NAVIGATION
+   =================================== */
+
+.header {
+    background: linear-gradient(135deg, #E91E63 0%, #F06292 100%) !important;
+}
+
+.navbar {
+    background: linear-gradient(135deg, #E91E63 0%, #F06292 100%) !important;
+}
+
+/* ===================================
+   FORM ELEMENTS
+   =================================== */
+
+.section-title {
+    color: #E91E63 !important;
+    border-bottom-color: #E91E63 !important;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #E91E63 !important;
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1) !important;
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+
+.submit-btn,
+.btn-primary {
+    background: linear-gradient(135deg, #E91E63 0%, #F06292 100%) !important;
+}
+
+.submit-btn:hover,
+.btn-primary:hover {
+    background: linear-gradient(135deg, #D81B60 0%, #EC407A 100%) !important;
+    box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3) !important;
+}
+
+/* ===================================
+   QUOTA STATUS
+   =================================== */
+
+.quota-status-banner {
+    background: linear-gradient(135deg, #E91E63 0%, #F06292 100%) !important;
+}
+
+.quota-count {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.quota-remaining {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ===================================
+   WORKSHOP ELEMENTS
+   =================================== */
+
+.checkbox-option:hover {
+    border-color: #E91E63 !important;
+    background: rgba(233, 30, 99, 0.05) !important;
+}
+
+.checkbox-option input[type="checkbox"]:checked + label {
+    color: #E91E63 !important;
+}
+
+.workshop-remaining {
+    color: #E91E63 !important;
+}
+
+/* ===================================
+   INFO BOXES
+   =================================== */
+
+.info-box-details h3 {
+    color: #E91E63 !important;
+}
+
+.info-box-details strong {
+    color: #E91E63 !important;
+}
+
+/* ===================================
+   LINKS
+   =================================== */
+
+a {
+    color: #E91E63 !important;
+}
+
+a:hover {
+    color: #C2185B !important;
+}
+
+/* ===================================
+   PROGRESS & INDICATORS
+   =================================== */
+
+.capacity-bar-fill.low {
+    background: #E91E63 !important;
+}
+
+.workshop-badge.available {
+    background: #f8bbd0 !important;
+    color: #ad1457 !important;
+}
+
+/* ===================================
+   FILE UPLOAD
+   =================================== */
+
+.file-upload-label {
+    background: #E91E63 !important;
+}
+
+.file-upload-label:hover {
+    background: #D81B60 !important;
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        background: linear-gradient(135deg, #E91E63 0%, #F06292 100%) !important;
+    }
+}
