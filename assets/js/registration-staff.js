@@ -52,46 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== 4. จัดการ Workshop ==========
-    const workshopYes = document.getElementById('workshopYes');
-    const workshopNo = document.getElementById('workshopNo');
-    const workshopFields = document.getElementById('workshopFields');
-    const workshopCheckboxes = document.querySelectorAll('input[name="workshops"]');
-    
-    function toggleWorkshopFields() {
-        if (workshopYes && workshopYes.checked) {
-            workshopFields.style.display = 'block';
-        } else {
-            workshopFields.style.display = 'none';
-            // ยกเลิกการเลือก checkbox ทั้งหมด
-            workshopCheckboxes.forEach(checkbox => {
-                checkbox.checked = false;
-            });
-        }
-    }
-    
-    if (workshopYes) {
-        workshopYes.addEventListener('change', toggleWorkshopFields);
-    }
-    if (workshopNo) {
-        workshopNo.addEventListener('change', toggleWorkshopFields);
-    }
-    
-    // ========== 5. Validation ฟอร์ม ==========
+    // ========== 4. Validation ฟอร์ม ==========
     const form = document.getElementById('registrationForm');
     
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // ตรวจสอบว่าถ้าเลือก "ต้องการเข้าร่วม Workshop" ต้องเลือกอย่างน้อย 1 workshop
-            if (workshopYes && workshopYes.checked) {
-                const selectedWorkshops = Array.from(workshopCheckboxes).filter(cb => cb.checked);
-                if (selectedWorkshops.length === 0) {
-                    alert('กรุณาเลือก Workshop อย่างน้อย 1 หัวข้อ');
-                    return;
-                }
-            }
             
             // ตรวจสอบเบอร์โทรศัพท์
             const phoneInput = document.getElementById('phone');
@@ -115,12 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log(key + ': ' + value);
                 }
                 
-                // รวมข้อมูล workshops ที่เลือก
-                const selectedWorkshops = Array.from(workshopCheckboxes)
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.value);
-                console.log('Workshops ที่เลือก:', selectedWorkshops);
-                
                 // ส่งข้อมูลไปยังเซิร์ฟเวอร์ (ปรับแต่ง URL ตามจริง)
                 alert('แบบฟอร์มถูกส่งเรียบร้อยแล้ว!\n(ในการใช้งานจริง ข้อมูลจะถูกส่งไปยังเซิร์ฟเวอร์)');
                 
@@ -143,9 +103,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // ========== 6. เริ่มต้น - ซ่อนฟิลด์ที่เป็น conditional ==========
+    // ========== 5. เริ่มต้น - ซ่อนฟิลด์ที่เป็น conditional ==========
     if (otherAffiliationField) otherAffiliationField.style.display = 'none';
     if (otherPositionField) otherPositionField.style.display = 'none';
     if (otherFoodTypeField) otherFoodTypeField.style.display = 'none';
-    if (workshopFields) workshopFields.style.display = 'none';
 });
