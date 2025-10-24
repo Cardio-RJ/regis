@@ -3,54 +3,51 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // ========== 1. จัดการสังกัดอื่นๆ ==========
     const affiliationSelect = document.getElementById('affiliation');
-    const otherAffiliationField = document.getElementById('otherAffiliationField');
-    const otherAffiliationInput = document.getElementById('otherAffiliation');
+    const otherAffiliationField = document.getElementById('affiliation_other');
     
-    if (affiliationSelect) {
+    if (affiliationSelect && otherAffiliationField) {
         affiliationSelect.addEventListener('change', function() {
             if (this.value === 'อื่นๆ') {
                 otherAffiliationField.style.display = 'block';
-                otherAffiliationInput.required = true;
+                otherAffiliationField.required = true;
             } else {
                 otherAffiliationField.style.display = 'none';
-                otherAffiliationInput.required = false;
-                otherAffiliationInput.value = '';
+                otherAffiliationField.required = false;
+                otherAffiliationField.value = '';
             }
         });
     }
     
     // ========== 2. จัดการตำแหน่งอื่นๆ ==========
     const positionSelect = document.getElementById('position');
-    const otherPositionField = document.getElementById('otherPositionField');
-    const otherPositionInput = document.getElementById('otherPosition');
+    const otherPositionField = document.getElementById('position_other');
     
-    if (positionSelect) {
+    if (positionSelect && otherPositionField) {
         positionSelect.addEventListener('change', function() {
             if (this.value === 'อื่นๆ') {
                 otherPositionField.style.display = 'block';
-                otherPositionInput.required = true;
+                otherPositionField.required = true;
             } else {
                 otherPositionField.style.display = 'none';
-                otherPositionInput.required = false;
-                otherPositionInput.value = '';
+                otherPositionField.required = false;
+                otherPositionField.value = '';
             }
         });
     }
     
     // ========== 3. จัดการประเภทอาหารอื่นๆ ==========
     const foodTypeSelect = document.getElementById('foodType');
-    const otherFoodTypeField = document.getElementById('otherFoodTypeField');
-    const otherFoodTypeInput = document.getElementById('otherFoodType');
+    const otherFoodTypeField = document.getElementById('food_other');
     
-    if (foodTypeSelect) {
+    if (foodTypeSelect && otherFoodTypeField) {
         foodTypeSelect.addEventListener('change', function() {
             if (this.value === 'อื่นๆ') {
                 otherFoodTypeField.style.display = 'block';
-                otherFoodTypeInput.required = true;
+                otherFoodTypeField.required = true;
             } else {
                 otherFoodTypeField.style.display = 'none';
-                otherFoodTypeInput.required = false;
-                otherFoodTypeInput.value = '';
+                otherFoodTypeField.required = false;
+                otherFoodTypeField.value = '';
             }
         });
     }
@@ -96,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleWorkshopFields() {
         if (workshopYes && workshopYes.checked) {
             workshopFields.style.display = 'block';
-            // ไม่บังคับให้เลือก checkbox แต่ต้องเลือกอย่างน้อย 1 ถ้าเลือก "ต้องการเข้าร่วม"
         } else {
             workshopFields.style.display = 'none';
             // ยกเลิกการเลือก checkbox ทั้งหมด
@@ -121,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             // ตรวจสอบว่าถ้าเลือก "ต้องการเข้าร่วม Workshop" ต้องเลือกอย่างน้อย 1 workshop
-            if (workshopYes.checked) {
+            if (workshopYes && workshopYes.checked) {
                 const selectedWorkshops = Array.from(workshopCheckboxes).filter(cb => cb.checked);
                 if (selectedWorkshops.length === 0) {
                     alert('กรุณาเลือก Workshop อย่างน้อย 1 หัวข้อ');
@@ -131,15 +127,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // ตรวจสอบเบอร์โทรศัพท์
             const phoneInput = document.getElementById('phone');
-            const phonePattern = /^[0-9]{10}$/;
-            if (!phonePattern.test(phoneInput.value)) {
-                alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10 หลัก)');
-                phoneInput.focus();
-                return;
+            if (phoneInput) {
+                const phonePattern = /^[0-9]{10}$/;
+                if (!phonePattern.test(phoneInput.value)) {
+                    alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10 หลัก)');
+                    phoneInput.focus();
+                    return;
+                }
             }
             
             // ตรวจสอบเลขประจำตัวผู้เสียภาษี (ถ้ามีการกรอก)
-            if (receiptYes.checked && taxIdInput.value) {
+            if (receiptYes && receiptYes.checked && taxIdInput && taxIdInput.value) {
                 const taxIdPattern = /^[0-9]{13}$/;
                 if (!taxIdPattern.test(taxIdInput.value)) {
                     alert('กรุณากรอกเลขประจำตัวผู้เสียภาษีให้ถูกต้อง (13 หลัก)');
@@ -150,20 +148,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // ตรวจสอบไฟล์หลักฐานการชำระเงิน
             const paymentProofInput = document.getElementById('paymentProof');
-            if (paymentProofInput.files.length === 0) {
+            if (paymentProofInput && paymentProofInput.files.length === 0) {
                 alert('กรุณาแนบหลักฐานการชำระเงิน');
                 paymentProofInput.focus();
                 return;
             }
             
             // ตรวจสอบนามสกุลไฟล์
-            const allowedExtensions = ['png', 'jpg', 'jpeg'];
-            const fileName = paymentProofInput.files[0].name;
-            const fileExtension = fileName.split('.').pop().toLowerCase();
-            if (!allowedExtensions.includes(fileExtension)) {
-                alert('กรุณาแนบไฟล์ประเภท PNG หรือ JPG เท่านั้น');
-                paymentProofInput.focus();
-                return;
+            if (paymentProofInput && paymentProofInput.files.length > 0) {
+                const allowedExtensions = ['png', 'jpg', 'jpeg'];
+                const fileName = paymentProofInput.files[0].name;
+                const fileExtension = fileName.split('.').pop().toLowerCase();
+                if (!allowedExtensions.includes(fileExtension)) {
+                    alert('กรุณาแนบไฟล์ประเภท PNG หรือ JPG เท่านั้น');
+                    paymentProofInput.focus();
+                    return;
+                }
             }
             
             // ถ้าผ่านทุกการตรวจสอบ
