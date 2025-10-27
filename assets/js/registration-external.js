@@ -5,13 +5,6 @@ let quotaManager = null;
 
 // เริ่มต้น Quota Manager
 document.addEventListener('DOMContentLoaded', function() {
-    // สร้าง Quota Manager สำหรับบุคลากรภายนอก
-    quotaManager = initializeQuotaSystem('external');
-    
-    if (!quotaManager) {
-        console.warn('Registration is full or quota manager failed to initialize');
-        return;
-    }
     
     // ===========================
     // EXISTING CODE - ฟังก์ชันสำหรับแสดง/ซ่อนฟิลด์ตามเงื่อนไข
@@ -258,4 +251,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (otherFoodTypeField) otherFoodTypeField.style.display = 'none';
     if (receiptFields) receiptFields.style.display = 'none';
     if (workshopFields) workshopFields.style.display = 'none';
+    
+    // ===========================
+    // INITIALIZE QUOTA SYSTEM (ทำงานหลังจาก setup UI events)
+    // ===========================
+    quotaManager = initializeQuotaSystem('external');
+    
+    if (!quotaManager) {
+        console.warn('Registration is full or quota manager failed to initialize');
+    }
 });
