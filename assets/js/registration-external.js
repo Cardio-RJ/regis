@@ -5,6 +5,8 @@ let quotaManager = null;
 
 // เริ่มต้น Quota Manager
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== registration-external.js loaded ===');
+    console.log('DOM Content Loaded!');
     
     // ===========================
     // EXISTING CODE - ฟังก์ชันสำหรับแสดง/ซ่อนฟิลด์ตามเงื่อนไข
@@ -14,51 +16,78 @@ document.addEventListener('DOMContentLoaded', function() {
     const affiliationSelect = document.getElementById('affiliation');
     const otherAffiliationField = document.getElementById('affiliation_other');
     
+    console.log('affiliationSelect:', affiliationSelect);
+    console.log('otherAffiliationField:', otherAffiliationField);
+    
     if (affiliationSelect && otherAffiliationField) {
+        console.log('✅ Setting up affiliation listener');
         affiliationSelect.addEventListener('change', function() {
+            console.log('Affiliation changed to:', this.value);
             if (this.value === 'อื่นๆ') {
                 otherAffiliationField.style.display = 'block';
                 otherAffiliationField.required = true;
+                console.log('✅ Showing affiliation_other field');
             } else {
                 otherAffiliationField.style.display = 'none';
                 otherAffiliationField.required = false;
                 otherAffiliationField.value = '';
+                console.log('❌ Hiding affiliation_other field');
             }
         });
+    } else {
+        console.error('❌ Cannot find affiliation elements');
     }
     
     // ========== 2. จัดการตำแหน่งอื่นๆ ==========
     const positionSelect = document.getElementById('position');
     const otherPositionField = document.getElementById('position_other');
     
+    console.log('positionSelect:', positionSelect);
+    console.log('otherPositionField:', otherPositionField);
+    
     if (positionSelect && otherPositionField) {
+        console.log('✅ Setting up position listener');
         positionSelect.addEventListener('change', function() {
+            console.log('Position changed to:', this.value);
             if (this.value === 'อื่นๆ') {
                 otherPositionField.style.display = 'block';
                 otherPositionField.required = true;
+                console.log('✅ Showing position_other field');
             } else {
                 otherPositionField.style.display = 'none';
                 otherPositionField.required = false;
                 otherPositionField.value = '';
+                console.log('❌ Hiding position_other field');
             }
         });
+    } else {
+        console.error('❌ Cannot find position elements');
     }
     
     // ========== 3. จัดการประเภทอาหารอื่นๆ ==========
     const foodTypeSelect = document.getElementById('foodType');
     const otherFoodTypeField = document.getElementById('food_other');
     
+    console.log('foodTypeSelect:', foodTypeSelect);
+    console.log('otherFoodTypeField:', otherFoodTypeField);
+    
     if (foodTypeSelect && otherFoodTypeField) {
+        console.log('✅ Setting up foodType listener');
         foodTypeSelect.addEventListener('change', function() {
+            console.log('FoodType changed to:', this.value);
             if (this.value === 'อื่นๆ') {
                 otherFoodTypeField.style.display = 'block';
                 otherFoodTypeField.required = true;
+                console.log('✅ Showing food_other field');
             } else {
                 otherFoodTypeField.style.display = 'none';
                 otherFoodTypeField.required = false;
                 otherFoodTypeField.value = '';
+                console.log('❌ Hiding food_other field');
             }
         });
+    } else {
+        console.error('❌ Cannot find foodType elements');
     }
     
     // ========== 4. จัดการใบเสร็จ ==========
@@ -68,25 +97,38 @@ document.addEventListener('DOMContentLoaded', function() {
     const receiptNameInput = document.getElementById('receiptName');
     const receiptAddressInput = document.getElementById('receiptAddress');
     
+    console.log('receiptYes:', receiptYes);
+    console.log('receiptNo:', receiptNo);
+    console.log('receiptFields:', receiptFields);
+    
     function toggleReceiptFields() {
+        console.log('toggleReceiptFields called');
         if (receiptYes && receiptYes.checked) {
             receiptFields.style.display = 'block';
             receiptNameInput.required = true;
             receiptAddressInput.required = true;
+            console.log('✅ Showing receipt fields');
         } else {
             receiptFields.style.display = 'none';
             receiptNameInput.required = false;
             receiptAddressInput.required = false;
             receiptNameInput.value = '';
             receiptAddressInput.value = '';
+            console.log('❌ Hiding receipt fields');
         }
     }
     
     if (receiptYes) {
+        console.log('✅ Setting up receiptYes listener');
         receiptYes.addEventListener('change', toggleReceiptFields);
+    } else {
+        console.error('❌ Cannot find receiptYes');
     }
     if (receiptNo) {
+        console.log('✅ Setting up receiptNo listener');
         receiptNo.addEventListener('change', toggleReceiptFields);
+    } else {
+        console.error('❌ Cannot find receiptNo');
     }
     
     // ========== 5. จัดการ Workshop ==========
@@ -95,13 +137,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const workshopFields = document.getElementById('workshopFields');
     const workshopCheckboxes = document.querySelectorAll('input[name="workshops"]');
     
+    console.log('workshopYes:', workshopYes);
+    console.log('workshopNo:', workshopNo);
+    console.log('workshopFields:', workshopFields);
+    console.log('workshopCheckboxes count:', workshopCheckboxes.length);
+    
     function toggleWorkshopFields() {
+        console.log('toggleWorkshopFields called');
         if (workshopYes && workshopYes.checked) {
             workshopFields.style.display = 'block';
-            // อัปเดท UI ของ workshop
-            updateWorkshopUI(quotaManager);
+            console.log('✅ Showing workshop fields');
+            // อัปเดท UI ของ workshop (ถ้า quotaManager พร้อมใช้งาน)
+            if (quotaManager && typeof updateWorkshopUI === 'function') {
+                console.log('Calling updateWorkshopUI');
+                updateWorkshopUI(quotaManager);
+            } else {
+                console.warn('quotaManager or updateWorkshopUI not available');
+            }
         } else {
             workshopFields.style.display = 'none';
+            console.log('❌ Hiding workshop fields');
             // ยกเลิกการเลือก checkbox ทั้งหมด
             workshopCheckboxes.forEach(checkbox => {
                 checkbox.checked = false;
@@ -110,10 +165,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     if (workshopYes) {
+        console.log('✅ Setting up workshopYes listener');
         workshopYes.addEventListener('change', toggleWorkshopFields);
+    } else {
+        console.error('❌ Cannot find workshopYes');
     }
     if (workshopNo) {
+        console.log('✅ Setting up workshopNo listener');
         workshopNo.addEventListener('change', toggleWorkshopFields);
+    } else {
+        console.error('❌ Cannot find workshopNo');
     }
     
     // ========== 6. Validation ฟอร์ม + Quota Check ==========
@@ -126,8 +187,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // ===========================
             // QUOTA VALIDATION
             // ===========================
-            if (!handleFormSubmitWithQuota(e, quotaManager, 'external')) {
-                return;
+            if (quotaManager && typeof handleFormSubmitWithQuota === 'function') {
+                if (!handleFormSubmitWithQuota(e, quotaManager, 'external')) {
+                    return;
+                }
+            } else {
+                console.warn('Quota system not available - skipping quota validation');
             }
             
             // ===========================
