@@ -67,8 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // ===========================
             // QUOTA VALIDATION
             // ===========================
-            if (!handleFormSubmitWithQuota(e, quotaManager, 'staff')) {
-                return;
+            if (quotaManager && typeof handleFormSubmitWithQuota === 'function') {
+                if (!handleFormSubmitWithQuota(e, quotaManager, 'staff')) {
+                    return;
+                }
+            } else {
+                console.warn('Quota system not available - skipping quota validation');
             }
             
             // ตรวจสอบเบอร์โทรศัพท์
