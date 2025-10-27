@@ -74,22 +74,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const receiptFields = document.getElementById('receiptFields');
     const receiptNameInput = document.getElementById('receiptName');
     const receiptAddressInput = document.getElementById('receiptAddress');
-    const taxIdInput = document.getElementById('taxId');
     
     function toggleReceiptFields() {
         if (receiptYes && receiptYes.checked) {
             receiptFields.style.display = 'block';
             receiptNameInput.required = true;
             receiptAddressInput.required = true;
-            taxIdInput.required = true;
         } else {
             receiptFields.style.display = 'none';
             receiptNameInput.required = false;
             receiptAddressInput.required = false;
-            taxIdInput.required = false;
             receiptNameInput.value = '';
             receiptAddressInput.value = '';
-            taxIdInput.value = '';
         }
     }
     
@@ -161,16 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!phonePattern.test(phoneInput.value)) {
                     alert('กรุณากรอกเบอร์โทรศัพท์ให้ถูกต้อง (10 หลัก)');
                     phoneInput.focus();
-                    return;
-                }
-            }
-            
-            // ตรวจสอบเลขประจำตัวผู้เสียภาษี (ถ้ามีการกรอก)
-            if (receiptYes && receiptYes.checked && taxIdInput && taxIdInput.value) {
-                const taxIdPattern = /^[0-9]{13}$/;
-                if (!taxIdPattern.test(taxIdInput.value)) {
-                    alert('กรุณากรอกเลขประจำตัวผู้เสียภาษีให้ถูกต้อง (13 หลัก)');
-                    taxIdInput.focus();
                     return;
                 }
             }
