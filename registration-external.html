@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="assets/css/rjacc-styles.css">
     <link rel="stylesheet" href="modern-button-styles.css">
     <link rel="stylesheet" href="quota-styles.css">
-    <link rel="stylesheet" href="quota-styles.css">
-    <link rel="stylesheet" href="external-colors.css">
-    <script src="quota-manager.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -138,34 +135,13 @@
                         <input type="number" name="age" id="age" required placeholder="อายุ (ปี)" min="1" max="120">
                     </div>
 
-                    <!-- 8. หน่วยงาน/หอผู้ป่วย -->
-                    <div class="form-group">
-                        <label>หน่วยงาน/หอผู้ป่วย <span class="required">*</span></label>
-                        <select name="department" required id="department">
-                            <option value="">-- เลือกหน่วยงาน/หอผู้ป่วย --</option>
-                            <option value="หน่วยการพยาบาลป้องกันและควบคุมการติดเชื้อ">หน่วยการพยาบาลป้องกันและควบคุมการติดเชื้อ</option>
-                            <option value="หน่วยเครื่องใช้กลาง">หน่วยเครื่องใช้กลาง</option>
-                            <option value="หน่วยงานวิจัย/นวัตกรรมทางการพยาบาล">หน่วยงานวิจัย/นวัตกรรมทางการพยาบาล</option>
-                            <option value="หน่วยยุทธศาสตร์แผนงานและโครงการ">หน่วยยุทธศาสตร์แผนงานและโครงการ</option>
-                            <option value="หน่วยพัฒนาทรัพยากรมนุษย์ด้านพยาบาล (HRD)">หน่วยพัฒนาทรัพยากรมนุษย์ด้านพยาบาล (HRD)</option>
-                            <option value="หน่วยบริหารทรัพยากรมนุษย์ด้านพยาบาล (HRM)">หน่วยบริหารทรัพยากรมนุษย์ด้านพยาบาล (HRM)</option>
-                            <option value="หน่วยสารสนเทศและจัดการความรู้ทางการพยาบาล">หน่วยสารสนเทศและจัดการความรู้ทางการพยาบาล</option>
-                            <option value="หน่วยการดูแลแบบประคับประคอง">หน่วยการดูแลแบบประคับประคอง</option>
-                            <option value="หน่วยออสโตมีคลินิก">หน่วยออสโตมีคลินิก</option>
-                            <option value="หน่วยโภชนบำบัดทางการพยาบาล">หน่วยโภชนบำบัดทางการพยาบาล</option>
-                        </select>
-                    </div>
-
-                    <!-- 9. โรงพยาบาล/สถาบัน(สังกัด) -->
+                    <!-- 8. โรงพยาบาล/สถาบัน(สังกัด) -->
                     <div class="form-group">
                         <label>โรงพยาบาล/สถาบัน(สังกัด) <span class="required">*</span></label>
-                        <select name="hospital" required id="hospital">
-                            <option value="">-- เลือกโรงพยาบาล/สถาบัน --</option>
-                            <option value="โรงพยาบาลราชวิถี">โรงพยาบาลราชวิถี</option>
-                        </select>
+                        <input type="text" name="hospital" id="hospital" required placeholder="ระบุชื่อโรงพยาบาล/สถาบัน">
                     </div>
 
-                    <!-- 10. จังหวัด -->
+                    <!-- 9. จังหวัด -->
                     <div class="form-group">
                         <label>จังหวัด <span class="required">*</span></label>
                         <select name="province" required id="province">
@@ -293,6 +269,19 @@
                     <!-- 14. โปรดแนบหลักฐานการชำระเงินค่าลงทะเบียน -->
                     <div class="form-group">
                         <label>โปรดแนบหลักฐานการชำระเงินค่าลงทะเบียน <span class="required">*</span></label>
+                        
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                            <p style="margin-bottom: 10px; color: #333;">สามารถชำระเงินผ่านบัญชี Prompt Pay รพ.ราชวิถี</p>
+                            <p style="margin-bottom: 8px;"><strong>ค่าลงทะเบียน: 1,000 บาท</strong></p>
+                            <p style="margin-bottom: 15px;"><strong>รหัสอ้างอิง:</strong> TRAININGRJ362568</p>
+                            <p style="margin-bottom: 10px; font-weight: 600; color: #555;">ตามภาพด้านล่างนี้</p>
+                            <div style="text-align: center; margin-top: 15px;">
+                                <img src="https://via.placeholder.com/400x500/4CAF50/FFFFFF?text=QR+Code+PromptPay" 
+                                     alt="QR Code PromptPay" 
+                                     style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            </div>
+                        </div>
+                        
                         <input type="file" name="payment_proof" id="paymentProof" accept=".png,.jpg,.jpeg" required>
                         <small class="form-hint">รองรับไฟล์ประเภท PNG, JPG, JPEG เท่านั้น</small>
                     </div>
@@ -324,11 +313,6 @@
                         <div class="form-group">
                             <label>ที่อยู่ <span class="required">*</span></label>
                             <textarea name="receipt_address" id="receiptAddress" rows="3" placeholder="ที่อยู่สำหรับออกใบเสร็จ"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>เลขประจำตัวผู้เสียภาษี <span class="required">*</span></label>
-                            <input type="text" name="tax_id" id="taxId" placeholder="เลขประจำตัวผู้เสียภาษี 13 หลัก" maxlength="13">
                         </div>
                     </div>
 
