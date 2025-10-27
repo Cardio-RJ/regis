@@ -6,14 +6,6 @@ let quotaManager = null;
 // ฟังก์ชันสำหรับแสดง/ซ่อนฟิลด์ตามเงื่อนไข
 document.addEventListener('DOMContentLoaded', function() {
     
-    // เริ่มต้น Quota Manager สำหรับคณะทำงาน
-    quotaManager = initializeQuotaSystem('staff');
-    
-    if (!quotaManager) {
-        console.warn('Registration is full or quota manager failed to initialize');
-        return;
-    }
-    
     // ========== 1. จัดการสังกัดอื่นๆ ==========
     const affiliationSelect = document.getElementById('affiliation');
     const otherAffiliationField = document.getElementById('affiliation_other');
@@ -142,4 +134,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (otherAffiliationField) otherAffiliationField.style.display = 'none';
     if (otherPositionField) otherPositionField.style.display = 'none';
     if (otherFoodTypeField) otherFoodTypeField.style.display = 'none';
+    
+    // ===========================
+    // INITIALIZE QUOTA SYSTEM (ทำงานหลังจาก setup UI events)
+    // ===========================
+    quotaManager = initializeQuotaSystem('staff');
+    
+    if (!quotaManager) {
+        console.warn('Registration is full or quota manager failed to initialize');
+    }
 });
