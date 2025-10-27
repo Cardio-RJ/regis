@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ทดสอบ Conditional Fields</title>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        select, input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .hidden {
+            display: none;
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ทดสอบ Conditional Fields</h1>
+    
+    <!-- ทดสอบ Dropdown "อื่นๆ" -->
+    <div class="form-group">
+        <label>สังกัด</label>
+        <select id="affiliation">
+            <option value="">-- เลือกสังกัด --</option>
+            <option value="ภาครัฐ">ภาครัฐ</option>
+            <option value="ภาคเอกชน">ภาคเอกชน</option>
+            <option value="อื่นๆ">อื่นๆ (กรอกเพิ่มเติม)</option>
+        </select>
+        <input type="text" id="affiliation_other" placeholder="โปรดระบุ" style="display:none; margin-top: 8px;">
+    </div>
+
+    <!-- ทดสอบ Radio Button -->
+    <div class="form-group">
+        <label>ต้องการใบเสร็จหรือไม่?</label>
+        <div class="radio-group">
+            <label><input type="radio" name="receiptNeed" id="receiptYes" value="yes"> ต้องการ</label>
+            <label><input type="radio" name="receiptNeed" id="receiptNo" value="no"> ไม่ต้องการ</label>
+        </div>
+        <div id="receiptFields" style="display:none; margin-top: 15px; padding: 15px; background: #f5f5f5; border-radius: 5px;">
+            <input type="text" placeholder="ชื่อที่ต้องการออกใบเสร็จ" style="margin-bottom: 10px;">
+            <textarea placeholder="ที่อยู่" rows="3"></textarea>
+        </div>
+    </div>
+
+    <script>
+        console.log('Script loaded!');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded!');
+            
+            // ทดสอบ Dropdown
+            const affiliationSelect = document.getElementById('affiliation');
+            const otherAffiliationField = document.getElementById('affiliation_other');
+            
+            if (affiliationSelect && otherAffiliationField) {
+                console.log('Found affiliation elements');
+                affiliationSelect.addEventListener('change', function() {
+                    console.log('Affiliation changed to:', this.value);
+                    if (this.value === 'อื่นๆ') {
+                        otherAffiliationField.style.display = 'block';
+                        console.log('Showing other field');
+                    } else {
+                        otherAffiliationField.style.display = 'none';
+                        console.log('Hiding other field');
+                    }
+                });
+            } else {
+                console.error('Cannot find affiliation elements');
+            }
+            
+            // ทดสอบ Radio
+            const receiptYes = document.getElementById('receiptYes');
+            const receiptNo = document.getElementById('receiptNo');
+            const receiptFields = document.getElementById('receiptFields');
+            
+            if (receiptYes && receiptNo && receiptFields) {
+                console.log('Found receipt elements');
+                
+                receiptYes.addEventListener('change', function() {
+                    console.log('Receipt Yes clicked');
+                    if (this.checked) {
+                        receiptFields.style.display = 'block';
+                    }
+                });
+                
+                receiptNo.addEventListener('change', function() {
+                    console.log('Receipt No clicked');
+                    if (this.checked) {
+                        receiptFields.style.display = 'none';
+                    }
+                });
+            } else {
+                console.error('Cannot find receipt elements');
+            }
+        });
+    </script>
+</body>
+</html>
