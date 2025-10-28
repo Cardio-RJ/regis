@@ -177,7 +177,7 @@ img {
 }
 
 .hero-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
 }
