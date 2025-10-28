@@ -37,17 +37,9 @@ const QUOTA_CONFIG = {
 // ===========================
 
 const WORKSHOP_SESSIONS = [
+    // วันพุธที่ 21 มกราคม 2569
     {
         id: 'workshop1',
-        date: 'วันพุธที่ 21 มกราคม 2569',
-        time: 'ช่วงเช้า 08.00-12.00',
-        topic: 'MIS CVT',
-        room: 'โยธี',
-        capacity: 150,
-        value: 'วันพุธที่ 21 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: MIS CVT ห้องประชุมโยธี'
-    },
-    {
-        id: 'workshop2',
         date: 'วันพุธที่ 21 มกราคม 2569',
         time: 'ช่วงบ่าย 13.00-16.00',
         topic: 'MIS CVT',
@@ -56,7 +48,26 @@ const WORKSHOP_SESSIONS = [
         value: 'วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: MIS CVT ห้องประชุมโยธี'
     },
     {
+        id: 'workshop2',
+        date: 'วันพุธที่ 21 มกราคม 2569',
+        time: 'ช่วงบ่าย 13.00-16.00',
+        topic: 'Cath Lab',
+        room: 'ราชพฤกษ์',
+        capacity: 50,
+        value: 'วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Cath Lab ห้องประชุมราชพฤกษ์'
+    },
+    {
         id: 'workshop3',
+        date: 'วันพุธที่ 21 มกราคม 2569',
+        time: 'ช่วงบ่าย 13.00-16.00',
+        topic: 'Crisis management',
+        room: 'สุพรรณิการ์',
+        capacity: 50,
+        value: 'วันพุธที่ 21 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Crisis management ห้องประชุมสุพรรณิการ์'
+    },
+    // วันพฤหัสบดีที่ 22 มกราคม 2569
+    {
+        id: 'workshop4',
         date: 'วันพฤหัสบดีที่ 22 มกราคม 2569',
         time: 'ช่วงเช้า 08.00-12.00',
         topic: 'Workshop CVT',
@@ -65,16 +76,16 @@ const WORKSHOP_SESSIONS = [
         value: 'วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: Workshop CVT ห้องประชุมโยธี'
     },
     {
-        id: 'workshop4',
+        id: 'workshop5',
         date: 'วันพฤหัสบดีที่ 22 มกราคม 2569',
         time: 'ช่วงบ่าย 13.00-16.00',
         topic: 'Workshop CVT',
         room: 'โยธี',
-        capacity: 150,
+        capacity: 50,
         value: 'วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: Workshop CVT ห้องประชุมโยธี'
     },
     {
-        id: 'workshop5',
+        id: 'workshop6',
         date: 'วันพฤหัสบดีที่ 22 มกราคม 2569',
         time: 'ช่วงเช้า 08.00-16.00',
         topic: '……….',
@@ -83,7 +94,7 @@ const WORKSHOP_SESSIONS = [
         value: 'วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-16.00 Topic: ………. ห้องประชุมราชพฤกษ์'
     },
     {
-        id: 'workshop6',
+        id: 'workshop7',
         date: 'วันพฤหัสบดีที่ 22 มกราคม 2569',
         time: 'ช่วงบ่าย 13.00-16.00',
         topic: 'กายภาพบำบัด',
@@ -92,7 +103,7 @@ const WORKSHOP_SESSIONS = [
         value: 'วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: กายภาพบำบัด ห้องประชุมราชพฤกษ์'
     },
     {
-        id: 'workshop7',
+        id: 'workshop8',
         date: 'วันพฤหัสบดีที่ 22 มกราคม 2569',
         time: 'ช่วงเช้า 08.00-12.00',
         topic: 'เภสัชกร',
@@ -100,14 +111,33 @@ const WORKSHOP_SESSIONS = [
         capacity: 50,
         value: 'วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: เภสัชกร ห้องประชุมสุพรรณิการ์'
     },
+    // วันศุกร์ที่ 23 มกราคม 2569
     {
-        id: 'workshop8',
-        date: 'วันพฤหัสบดีที่ 22 มกราคม 2569',
-        time: 'ช่วงบ่าย 13.00-16.00',
-        topic: 'เภสัชกร',
+        id: 'workshop9',
+        date: 'วันศุกร์ที่ 23 มกราคม 2569',
+        time: 'ช่วงเช้า 08.00-12.00',
+        topic: 'โภชนาการ',
+        room: 'โยธี',
+        capacity: 150,
+        value: 'วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: โภชนาการ ห้องประชุมโยธี'
+    },
+    {
+        id: 'workshop10',
+        date: 'วันศุกร์ที่ 23 มกราคม 2569',
+        time: 'ช่วงเช้า 08.00-12.00',
+        topic: 'นำเสนอผลงานวิชาการทางการพยาบาล/Innovation+CQI ทางการพยาบาล',
+        room: 'ราชพฤกษ์',
+        capacity: 50,
+        value: 'วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: นำเสนอผลงานวิชาการทางการพยาบาล/Innovation+CQI ทางการพยาบาล ห้องประชุมราชพฤกษ์'
+    },
+    {
+        id: 'workshop11',
+        date: 'วันศุกร์ที่ 23 มกราคม 2569',
+        time: 'ช่วงเช้า 08.00-12.00',
+        topic: 'การจัดการเครื่องมือแพทย์',
         room: 'สุพรรณิการ์',
         capacity: 50,
-        value: 'วันพฤหัสบดีที่ 22 มกราคม 2569 ช่วงบ่าย 13.00-16.00 Topic: เภสัชกร ห้องประชุมสุพรรณิการ์'
+        value: 'วันศุกร์ที่ 23 มกราคม 2569 ช่วงเช้า 08.00-12.00 Topic: การจัดการเครื่องมือแพทย์ ห้องประชุมสุพรรณิการ์'
     }
 ];
 
@@ -270,10 +300,16 @@ function updateWorkshopUI(quotaManager) {
         const label = checkbox.nextElementSibling;
         if (!label) return;
 
-        // ลบข้อความเตือนเก่า (ถ้ามี)
+        // ลบข้อความเตือนเก่าทั้งหมด (ถ้ามี)
         const existingWarning = label.querySelector('.workshop-full-warning');
         if (existingWarning) {
             existingWarning.remove();
+        }
+        
+        // ลบข้อความจำนวนที่เหลือเก่า (ถ้ามี)
+        const existingRemaining = label.querySelector('.workshop-remaining');
+        if (existingRemaining) {
+            existingRemaining.remove();
         }
 
         // ถ้าเต็มแล้ว
