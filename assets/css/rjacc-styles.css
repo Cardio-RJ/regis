@@ -1570,3 +1570,37 @@ tbody tr:hover {
         height: 200px;
     }
 }
+
+/* Banner Responsive */
+.form-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;        /* ⭐ ไม่บิดเบี้ยว */
+    object-position: center;  /* ⭐ จัดกึ่งกลาง */
+}
+
+/* Banner บนสุด - Desktop */
+.form-banner:first-of-type img {
+    max-height: 300px;
+    min-height: 150px;
+}
+
+/* Banner ล่างสุด - Desktop */
+.form-banner:last-of-type img {
+    max-height: 200px;
+    min-height: 120px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .form-banner:first-of-type img {
+        max-height: 180px;
+        min-height: 100px;
+    }
+    
+    .form-banner:last-of-type img {
+        max-height: 150px;
+        min-height: 80px;
+    }
+}
